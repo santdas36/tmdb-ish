@@ -76,3 +76,22 @@ padding: 7rem 3rem 3rem;
 width: 100%;
 background: linear-gradient(to top, #3A6979, #4ca1af);
 }
+.app__featuredInfo {
+margin: 0;
+font-weight: 500;
+}
+.app__featuredTitle {
+font-weight: 900;
+}
+.app__featuredDesc {
+width: 50%;
+}
+.app__featuredRating {
+display: flex;
+align-items: center;
+}
+.app__featuredLikes {
+margin-top: 0.05rem;
+margin-bottom: 0;
+margin-left: 0.5rem;
+}
