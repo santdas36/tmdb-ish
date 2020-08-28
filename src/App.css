@@ -30,6 +30,9 @@ list-style: none;
 margin: 0;
 padding: 0;
 }
+.app__nav li {
+flex: 0 0 auto;
+}
 .app__nav li + li {
 margin-left: 2rem
 }
