@@ -28,16 +28,15 @@ align-items: center;
 list-style: none;
 margin: 0;
 padding: 0;
-font-size: 0.9rem;
 }
-.app__ nav li + li {
+.app__nav li + li {
 margin-left: 2rem
 }
 .app__search {
 display: flex;
 align-items: center;
 background: transparent;
-padding: 0.25rem;
+padding: 0.33rem;
 border: 1px solid rgba(255,255,255,0.5);
 border-radius: 99px;
 transition: width 0.2s;
@@ -48,22 +47,27 @@ overflow: hidden;
 width: 12rem;
 }
 .app__searchIcon {
-font-size: 1.5rem;
-margin-right: 0.25rem;
+font-size: 1.34rem;
+margin-right: 0.33rem;
 }
 .app__search > input {
 background: transparent;
 color: #fff;
 border: none;
 width: 100%;
-magin-right: 0.5rem;
+padding-right: 1rem;
 }
 .app__search > input:focus {
 outline: none
 }
-
 .app__title {
 font-size: 1.5rem;
 font-weight: 900;
 margin: 0;
+}
+
+.app__featured {
+padding: 7rem 3rem 3rem;
+width: 100%;
+background: linear-gradient(to top, #3A6979, #4ca1af);
 }
