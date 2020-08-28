@@ -12,7 +12,7 @@ function App() {
 		<div className="app__header">
 			<ul className="app__nav">
 				<li className="app__search">
-					<SearchRoundedIcon fontSize={20} className="app__searchIcon" />
+					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" />
 					<input type="text" placeholder="Search..." />
 				</li>
 				<li><a href="#">Home</a></li>
