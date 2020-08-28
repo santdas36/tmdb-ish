@@ -42,7 +42,7 @@ padding-left: 0.375rem;
 border: 1px solid rgba(255,255,255,0.5);
 border-radius: 99px;
 transition: width 0.2s;
-width: calc(2rem + 2px);
+width: 2rem;
 overflow: hidden;
 }
 .app__search:hover {
