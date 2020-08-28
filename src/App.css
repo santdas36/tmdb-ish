@@ -79,6 +79,7 @@ background: linear-gradient(to top, #3A6979, #4ca1af);
 .app__featuredInfo {
 margin: 0;
 font-weight: 500;
+text-transform: uppercase;
 }
 .app__featuredTitle {
 font-weight: 900;
