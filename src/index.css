@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&family=Mulish:wght@700;800;900&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  color: #fff;
+  background: #4ca1af;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Mulish";
+  font-weight: 800;
+}
+
+::placeholder {
+  color: rgba(255,255,255,0.5);
+}
