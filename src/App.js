@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
 import Rating from '@material-ui/lab';
-import TextTruncate from 'react-truncate';
+import TextTruncate from 'react-text-truncate';
 import "./App.css";
 
 function App() {
