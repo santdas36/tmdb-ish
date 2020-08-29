@@ -75,7 +75,7 @@ margin: 0;
 .app__featured {
 padding: 7rem 3rem 3rem;
 width: 100%;
-background: linear-gradient(to top, #3A6979, #4ca1af);
+background: linear-gradient(to top, #3a6979, #4ca1af);
 }
 .app__featuredInfo {
 margin: 0;
@@ -102,4 +102,5 @@ margin: 0 0 8px 0.5rem;
 .app__playTrailer {
 border-radius: 99px;
 text-transform: inherit;
+color: #3a6979;
 }
