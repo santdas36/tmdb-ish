@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from '@material-ui/core/Button';
+import StarRoundedIcon from "@material-ui/icons/StarRounded";
+import Rating from "@material-ui/lab/Rating";
 import "./List.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
@@ -30,6 +32,7 @@ function List() {
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title}</h5>
 								<p className="list__itemOverview">{movie.overview}</p>
+								{movie.vote_average && <Rating name="movie-rating" value={movie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>}
 							</div>
 						</div>)
 					)}
