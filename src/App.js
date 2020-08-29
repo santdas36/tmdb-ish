@@ -8,7 +8,7 @@ import TextTruncate from "react-text-truncate";
 import List from "./List";
 import "./App.css";
 import axios from './axios';
-import request, {imageBase, fetchMovie} from './api';
+import requests, {imageBase, fetchMovie} from './api';
 
 
 function App() {
