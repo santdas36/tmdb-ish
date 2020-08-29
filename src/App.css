@@ -100,7 +100,7 @@ color: rgba(255,255,255,0.25) !important;
 margin: 0 0 8px 0.5rem;
 }
 .app__playTrailer {
-border-radius: 99px;
-text-transform: inherit;
-color: #3a6979;
+border-radius: 99px !important;
+text-transform: inherit !important;
+color: #3a6979 !important;
 }
