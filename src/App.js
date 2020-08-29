@@ -20,8 +20,8 @@ function App() {
 		axios.get(requests.fetchTopRatedMovies).then((response) => setTopRatedMovies(response.data.results))
 	}, []);
 	useEffect(() => {
-			let getFeatured = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)];
-			axios.get(fetchMovie(550)).then((response) => setFeaturedMovie(response.data));
+			let getFeatured = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)].id;
+			axios.get(fetchMovie(getFeatured)).then((response) => setFeaturedMovie(response.data));
 		
 	}, [topRatedMovies]);
 
@@ -59,8 +59,8 @@ function App() {
 				truncateText="…" text={featuredMovie.overview}
 			/>
 			<div className="app__featuredRating">
-				<Rating name="movie-rating" value={featuredMovie.vote_average} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
-				<p className="app__featuredLikes">3.4<small> ({featuredMovie.vote_count})</small></p>
+				<Rating name="movie-rating" value={featuredMovie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
+				<p className="app__featuredLikes">{featuredMovie.vote_average / 2}<small> ({featuredMovie.vote_count})</small></p>
 			</div>
 			<Button className="app__button" variant="contained" startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>
