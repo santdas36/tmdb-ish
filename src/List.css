@@ -1,0 +1,44 @@
+.list {
+padding: 1.5rem 3rem;
+display: flex;
+width: 100%;
+background: linear-gradient( to bottom, #3A6979, #2c3e50);
+}
+.list  h4 {
+margin-bottom: 2rem;
+}
+
+.list__trending {
+flex: 0 0 calc(60% - 2rem);
+margin-right: 2rem;
+position: relative;
+-webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+}
+.list__items {
+display: flex;
+overflow-y: scroll;
+}
+.list__items > .list__item {
+flex: 0 0 40%;
+height: 0;
+padding-bottom: 30%;
+background: #fff;
+border-radius: 1rem;
+}
+.list__items > .list__item + .list__item {
+margin-left: 1rem;
+}
+
+
+.list__genreList {
+flex: 0 0 40%;
+}
+.list__genres {
+display: flex;
+flex-flow: row wrap;
+}
+.list__genres > .app__button {
+color: #2c3e50 !important;
+margin-right: 0.5rem;
+margin-bottom: 0.5rem;
+}
