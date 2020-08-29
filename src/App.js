@@ -15,13 +15,24 @@ function App() {
   const [truncLine, setTruncLine] = useState(2);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState([]);
+  const [bgSrc, setBgSrc] = useState("");
 
 	useEffect(() => {
 		axios.get(requests.fetchTopRatedMovies).then((response) => {
 			let tempMov = response.data.results;
 			setTopRatedMovies(tempMov);
 			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
-			axios.get(fetchMovie(getFeatured)).then((response) => setFeaturedMovie(response.data)).catch((err) => console.log(err));
+			axios.get(fetchMovie(getFeatured)).then((response) => {
+				setFeaturedMovie(response.data);
+				setBgSrc(`${imageBase}${response.data.backdrop_path || response.data.poster_path}`);
+				console.log(bgSrc);
+				console.log(bgSrc);
+				console.log(bgSrc);
+				console.log(bgSrc);
+				console.log(bgSrc);
+				console.log(bgSrc);
+				console.log(bgSrc);
+			}).catch((err) => console.log(err));
 		})
 	}, []);
 
@@ -31,8 +42,8 @@ function App() {
 	e.target.style.display = 'none';
   }
 
-  const overlayStyle = {
-	backgroundImage: `${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path}`,
+  let overlayStyle = {
+	backgroundImage: {bgSrc},
 	backgroundSize: 'cover',
 	backgroundPosition: 'top right',
   }
