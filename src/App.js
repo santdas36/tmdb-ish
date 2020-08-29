@@ -15,7 +15,7 @@ function App() {
   const [truncLine, setTruncLine] = useState(2);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState([]);
-  const [
+
 	useEffect(() => {
 		axios.get(requests.fetchTopRatedMovies).then((response) => setTopRatedMovies(response.data.results))
 	}, []);
