@@ -33,8 +33,8 @@ function App() {
 
   const overlayStyle = {
 	backgroundImage: `${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path}`,
-	backgroundSize: cover,
-	backgroundPosition: top right,
+	backgroundSize: 'cover',
+	backgroundPosition: 'top right',
   }
 
   return (
