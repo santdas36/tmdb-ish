@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;900&family=Mulish:wght@700;800;900&display=swap');
+@import 'node_modules/react-modal-video/scss/modal-video.scss';
 
 body {
   margin: 0;
