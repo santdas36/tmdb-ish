@@ -32,7 +32,7 @@ function List() {
 								element="h5"
 								containerClassName="list__itemTitle"
 								textTruncateChild={<a href="#" onClick={readMore}><small>[more]</small></a>}
-								truncateText="…" text="Power Panther - The Movie"
+								truncateText="…" text={movie.title || movie.original_title}
 							/>
 						</div>)
 					)}
