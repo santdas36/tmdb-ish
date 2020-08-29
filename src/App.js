@@ -16,9 +16,8 @@ function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
 
 	useEffect(() => {
-		axios.get(requests.fetchTopRatedMovies).then((response) => {
-			
-			console.log(response.data.results);
+		axios.get(requests.fetchTopRatedMovies).then((response) => {		
+			console.log(response);
 		})
 	}, []);
 
