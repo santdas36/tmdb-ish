@@ -58,9 +58,10 @@ background-position: 0% 100%;
 .list__itemInfo {
 position: absolute;
 left: 0;
-bottom: -3rem;
+bottom: -3.5rem;
 padding: 1rem;
 z-index: 9;
+transition: bottom 0.2s ease-in;
 }
 .list__item:hover .list__itemInfo {
 bottom: -0;
