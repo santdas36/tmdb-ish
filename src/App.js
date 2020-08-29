@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
-import StarRoundedIcon from '@material-ui/icons/StarRounded';
-import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
-import Rating from '@material-ui/lab/Rating';
-import Button from '@material-ui/core/Button'; 
-import TextTruncate from 'react-text-truncate';
+import StarRoundedIcon from "@material-ui/icons/StarRounded";
+import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
+import Rating from "@material-ui/lab/Rating";
+import Button from "@material-ui/core/Button";
+import TextTruncate from "react-text-truncate";
+import List from "./List";
 import "./App.css";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
 			</div>
 			<Button className="app__button" variant="contained" startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>
-		
+		<List />
     </div>
   );
 }
