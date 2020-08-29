@@ -9,7 +9,13 @@ import List from "./List";
 import "./App.css";
 
 function App() {
-  const [readMore, setReadMore] = useState(2);
+  const [truncLine, setTruncLine] = useState(2);
+
+  const readMore = (e) => {
+	setTruncLine(0);
+	e.target.style.display = 'none';
+  }
+
   return (
     <div className="app">
 		<div className="app__overlay"></div>
@@ -30,10 +36,10 @@ function App() {
 			<p className="app__featuredInfo">Today's Featured Film</p>
 			<h2 className="app__featuredTitle">Two and a Half Men</h2>
 			<TextTruncate
-				line={2}
+				line={truncLine}
 				element="p"
 				containerClassName="app__featuredDesc"
-				textTruncateChild={<a href="#" onClick={(e) => {setReadMore(0); e.target.style.display = none;}}><small>[more]</small></a>}
+				textTruncateChild={<a href="#" onClick={readMore}><small>[more]</small></a>}
 				truncateText="…" text="Charlie Harper is a jingle writer who leads a hedonistic, carefree life. Everything changes when his good-for-nothing brother, Alan, and 10-year-old nephew, Jake, move into his Malibu beach house"
 			/>
 			<div className="app__featuredRating">
