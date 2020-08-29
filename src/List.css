@@ -58,7 +58,7 @@ background-position: 0% 100%;
 .list__itemInfo {
 position: absolute;
 left: 0;
-bottom: -3.5rem;
+bottom: -4rem;
 padding: 1rem;
 z-index: 9;
 transition: bottom 0.2s ease-in;
@@ -71,6 +71,7 @@ white-space: nowrap;
 text-overflow: ellipsis;
 overflow: hidden;
 width: 100%;
+margin-bottom: 1.25rem;
 }
 .list__itemOverview {
 height: 2.4rem;
