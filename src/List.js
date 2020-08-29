@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from '@material-ui/core/Button';
 import "./List.css";
 import axios from './axios';
-import requests from './api';
+import requests, {imageBase} from './api';
 
 function List() {
 	const [genres, setGenres] = useState([]);
@@ -26,7 +26,7 @@ function List() {
 				<div class="list__items">
 					{ popularMovies?.map((movie) => 
 						(<div class="list__item">
-							<img src={"https://image.tmdb.org/t/p/w500"+{movie.poster_path || movie.backdrop_path}} />
+							<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 						</div>)
 					)}
 				</div>
