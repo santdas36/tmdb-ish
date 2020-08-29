@@ -34,8 +34,8 @@ function App() {
 				truncateText="…" text="Charlie Harper is a jingle writer who leads a hedonistic, carefree life. Everything changes when his good-for-nothing brother, Alan, and 10-year-old nephew, Jake, move into his Malibu beach house"
 			/>
 			<div className="app__featuredRating">
-				<Rating name="movie-rating" value={3.5} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
-				<p className="app__featuredLikes">3.5<small> (372)</small></p>
+				<Rating name="movie-rating" value={3.2} precision={0.1} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
+				<p className="app__featuredLikes">3.2<small> (372)</small></p>
 			</div>
 			<Button className="app__button" variant="contained" startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>

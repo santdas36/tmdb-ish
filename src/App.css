@@ -62,9 +62,6 @@ border: none;
 width: 100%;
 padding-right: 0.5rem;
 }
-.app__search > input:focus {
-outline: none
-}
 .app__title {
 font-size: 1.5rem;
 font-weight: 900;
