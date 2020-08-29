@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Button from '@material-ui/core/Button';
-import TextTruncate from 'react-text-truncate';
 import "./List.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
@@ -28,13 +27,10 @@ function List() {
 					{ popularMovies?.slice(0, 6).map((movie) => 
 						(<div class="list__item">
 							<img src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} />
-							<TextTruncate
-								line={1}
-								element="h5"
-								containerClassName="list__itemTitle"
-								truncateText="…"
-								text={movie.title || movie.original_title}
-							/>
+							<div className="list__itemInfo"
+								<h5 className="list__itemTitle">{movie.title || movie.original_title}</h5>
+								<p className="list__itemOverview">{movie.overview}</p>
+							</div>
 						</div>)
 					)}
 					<div class="list__item"></div>

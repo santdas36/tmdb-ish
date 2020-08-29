@@ -49,16 +49,18 @@ background-size: 150% 150%;
 background-position: 0 0;
 top: 0;
 left: 0;
-z-index: 22;
 transition: all 0.2s;
+z-index: 1;
 }
 .list__item:hover::before {
 background-position: 0% 100%;
 }
-.list__itemTitle {
+.list__itemInfo {
 position: absolute;
 left: 0;
 bottom: 0;
+padding: 1rem;
+z-index: 9;
 }
 .list__genreList {
 flex: 0 0 400px;
