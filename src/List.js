@@ -33,9 +33,9 @@ function List() {
 			<div class="list__genreList">
 				<h4>Movies by Genre</h4>
 				<div class="list__genres">
-					{ genres?.map((genre) => {
-						genre.id != '10770' && <Button className="app__button" onClick={() => console.log(genre.name, genre.id)} variant="contained" disableFocusRipple>{genre.name}</Button>
-					})}
+					{ genres?.map((genre) =>
+						genre.id != '10770' && (<Button className="app__button" onClick={() => console.log(genre.name, genre.id)} variant="contained" disableFocusRipple>{genre.name}</Button>)
+					)}
 				</div>
 			</div>
 
