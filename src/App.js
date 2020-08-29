@@ -13,6 +13,7 @@ function App() {
 
   const readMore = (e) => {
 	setTruncLine(0);
+	e.preventDefault();
 	e.target.style.display = 'none';
   }
 
