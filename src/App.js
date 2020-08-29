@@ -6,6 +6,7 @@ import Rating from "@material-ui/lab/Rating";
 import Button from "@material-ui/core/Button";
 import TextTruncate from "react-text-truncate";
 import ModalVideo from "react-modal-video";
+import "./modalVideo.css";
 import List from "./List";
 import "./App.css";
 import axios from './axios';
