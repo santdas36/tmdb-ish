@@ -9,8 +9,8 @@ const requests = {
 	fetchTrendingMovies: `/trending/movie/week?api_key=${API_KEY}`,
 	fetchTrendingTV: `/trending/tv/week?api_key=${API_KEY}`,
 };
-const fetchMovie = (movie_id) => {
-	return `/movie/${movie_id}?api_key=${API_KEY}&append_to_response=videos`
+const fetchMovie = (id) => {
+	return `/movie/${id}?api_key=${API_KEY}&append_to_response=videos`
 }
 
 export {imageBase, fetchMovie};
