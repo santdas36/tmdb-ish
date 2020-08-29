@@ -17,6 +17,11 @@ position: relative;
 .list__items {
 display: flex;
 overflow-y: scroll;
+scrollbar-width: none;
+-ms-overflow-style: none;
+}
+.list__items::-webkit-scrollbar {
+display: none;
 }
 .list__items > .list__item {
 flex: 0 0 300px;
