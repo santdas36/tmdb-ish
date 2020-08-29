@@ -27,6 +27,13 @@ function List() {
 					{ popularMovies?.slice(0, 6).map((movie) => 
 						(<div class="list__item">
 							<img src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} />
+							<TextTruncate
+								line={1}
+								element="h5"
+								containerClassName="list__itemTitle"
+								textTruncateChild={<a href="#" onClick={readMore}><small>[more]</small></a>}
+								truncateText="…" text="Power Panther - The Movie"
+							/>
 						</div>)
 					)}
 					<div class="list__item"></div>
