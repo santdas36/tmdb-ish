@@ -70,15 +70,19 @@ bottom: 0;
 white-space: nowrap;
 text-overflow: ellipsis;
 overflow: hidden;
-width: 100%;
+width: 90%;
 margin-bottom: 1.25rem;
 }
-.list__item:hover > .list__itemTitle {
+.list__item:hover .list__itemTitle {
 margin-bottom: 0.5rem;
 }
 .list__itemOverview {
 height: 2.4rem;
 overflow: hidden;
+}
+.list__item .movieRating {
+transform-origin: 0 0;
+transform: scale(0.9);
 }
 .list__genreList {
 flex: 0 0 400px;
