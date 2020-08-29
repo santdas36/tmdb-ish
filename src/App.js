@@ -31,9 +31,15 @@ function App() {
 	e.target.style.display = 'none';
   }
 
+  const overlayStyle = {
+	backgroundImage: `${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path}`,
+	backgroundSize: cover,
+	backgroundPosition: top right,
+  }
+
   return (
     <div className="app">
-		<div className="app__overlay"></div>
+		<div className="app__overlay" style={overlayStyle}></div>
 		<div className="app__header">
 			<ul className="app__nav">
 				<li className="app__search">
