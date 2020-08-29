@@ -21,7 +21,7 @@ function App() {
 		})
 	}, []);
 	useEffect(() => {
-		let featuredMovie = topRatedMovies[Math.floor(Math.random * topRatedMovies.length)];
+		let featuredMovie = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)];
 		console.log(featuredMovie);
 	}, [topRatedMovies])
 
