@@ -26,7 +26,7 @@ function List() {
 				<div class="list__items">
 					{ popularMovies?.map((movie) => 
 						(<div class="list__item">
-							<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
+							<img src={`${imageBase}${movie.backdrop_path}`} />
 						</div>)
 					)}
 				</div>
