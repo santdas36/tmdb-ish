@@ -32,8 +32,8 @@ function List() {
 								line={1}
 								element="h5"
 								containerClassName="list__itemTitle"
-								textTruncateChild={<a href="#" onClick={readMore}><small>[more]</small></a>}
-								truncateText="…" text={movie.title || movie.original_title}
+								truncateText="…"
+								text={movie.title || movie.original_title}
 							/>
 						</div>)
 					)}
