@@ -99,10 +99,14 @@ color: rgba(255,255,255,0.25) !important;
 .app__featuredLikes {
 margin: 0 0 8px 0.5rem;
 }
-.app__playTrailer {
+.app__button {
 border-radius: 99px !important;
 text-transform: inherit !important;
 color: #3a6979 !important;
 font-weight: 500 !important;
 font-family: "Work Sans", sans-serif !important;
+background-color: rgb(255,255,255) !important;
+}
+.app__button:hover {
+background-color: rgb(215,215,215) !important;
 }
