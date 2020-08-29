@@ -17,13 +17,19 @@ function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState([]);
   const [playing, setPlaying] = useState(false);
+  const [videoId, setVideoId] = useState('');
 
 	useEffect(() => {
 		axios.get(requests.fetchTopRatedMovies).then((response) => {
 			let tempMov = response.data.results;
 			setTopRatedMovies(tempMov);
 			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
-			axios.get(fetchMovie(getFeatured)).then((response) => setFeaturedMovie(response.data)).catch((err) => console.log(err));
+			axios.get(fetchMovie(getFeatured)).then((response) => {
+				setFeaturedMovie(response.data);
+				let videos = response.data.videos.results;
+				let vidId = videos[videos.length - 1].key;
+				setVideoId(vidId);
+			}).catch((err) => console.log(err));
 		})
 	}, []);
 
@@ -42,12 +48,13 @@ function App() {
   return (
     <div className="app">
 		<div className="app__overlay" style={overlayStyle}></div>
-		<ModalVideo
+		{videoId &&
+		(<ModalVideo
 			channel='youtube'
 			isOpen={playing}
-			videoId={featuredMovie.videos.results[featuredMovie.videos.results.length - 1].key}
+			videoId={videoId}
 			onClose={() => setPlaying(false)}
-		/>
+		/>)}
 		<div className="app__header">
 			<ul className="app__nav">
 				<li className="app__search">
