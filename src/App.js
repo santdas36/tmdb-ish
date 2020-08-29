@@ -22,7 +22,9 @@ function App() {
 	}, []);
 	useEffect(() => {
 		let featuredMovie = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)];
-		console.log(featuredMovie);
+		axios.get(fetchMovie(featuredMovie.id)).then((response) => {
+			console.log('movie', response);
+		})
 	}, [topRatedMovies])
 
   const readMore = (e) => {
