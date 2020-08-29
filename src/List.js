@@ -21,16 +21,16 @@ function List() {
 			<div class="list__genreList">
 				<h4>Movies by Genre</h4>
 				<div class="list__genres">
-					<Button className="app__button" variant="contained">Action</Button>
-					<Button className="app__button" variant="contained">Animation</Button>
-					<Button className="app__button" variant="contained">Comedy</Button>
-					<Button className="app__button" variant="contained">Crime</Button>
-					<Button className="app__button" variant="contained">Epic</Button>
-					<Button className="app__button" variant="contained">Drama</Button>
-					<Button className="app__button" variant="contained">Fantasy</Button>
-					<Button className="app__button" variant="contained">Romance</Button>
-					<Button className="app__button" variant="contained">Sci-Fi</Button>
-					<Button className="app__button" variant="contained">Thriller</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Action</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Animation</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Comedy</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Crime</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Epic</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Drama</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Fantasy</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Romance</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Sci-Fi</Button>
+					<Button className="app__button" variant="contained" disableFocusRipple>Thriller</Button>
 				</div>
 			</div>
 
