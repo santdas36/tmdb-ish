@@ -42,3 +42,11 @@ color: #2c3e50 !important;
 margin-right: 0.5rem;
 margin-bottom: 0.5rem;
 }
+.list__genres:hover > .app__button {
+transform: scale(0.95);
+opacity: 0.5;
+}
+.list__genres > .app__button:hover {
+transform: scale(1.1);
+background-color: #fff !important;
+}
