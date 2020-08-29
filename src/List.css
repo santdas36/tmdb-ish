@@ -28,7 +28,11 @@ border-radius: 1rem;
 .list__items > .list__item + .list__item {
 margin-left: 1rem;
 }
-
+.list__item > img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
 
 .list__genreList {
 flex: 0 0 400px;

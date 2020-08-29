@@ -11,10 +11,9 @@ function List() {
 	useEffect(() => {
 		axios.get(requests.fetchGenres).then((response) => {
 			setGenres(response.data.genres);
-			console.log(genres);
 		});
 		axios.get(requests.fetchPopularMovies).then((response) => {
-			console.log(response);
+			setPopularMovies(response.data.results);
 		})
 	}, []);
 
@@ -25,12 +24,11 @@ function List() {
 			<div class="list__trending">
 				<h4>Trending Movies and TV Shows</h4>
 				<div class="list__items">
-					<div class="list__item"></div>
-					<div class="list__item"></div>
-					<div class="list__item"></div>
-					<div class="list__item"></div>
-					<div class="list__item"></div>
-					<div class="list__item"></div>
+					{ popularMovies?.map((movie) => 
+						(<div class="list__item">
+							<img src={"https://image.tmdb.org/t/p/w500"+{movie.poster_path || movie.backdrop_path}} />
+						</div>)
+					)}
 				</div>
 			</div>
 
