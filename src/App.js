@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
@@ -7,10 +7,12 @@ import Button from "@material-ui/core/Button";
 import TextTruncate from "react-text-truncate";
 import List from "./List";
 import "./App.css";
+import axios from './axios';
+import request from './requests';
+
 
 function App() {
   const [truncLine, setTruncLine] = useState(2);
-
   const readMore = (e) => {
 	setTruncLine(0);
 	e.preventDefault();

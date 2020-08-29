@@ -9,7 +9,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "react-text-truncate": "^0.16.0"
+    "react-text-truncate": "^0.16.0",
+    "axios": "^0.20.0",
   },
   "scripts": {
     "start": "react-scripts start",

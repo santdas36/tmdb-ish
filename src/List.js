@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from '@material-ui/core/Button';
 import "./List.css";
+import axios from './axios';
+import request from './requests';
 
 function List() {
+	const [genres, setGenres] = useState([]);
+
+	useEffect(() => {
+		axios.get(requests.fetchGenres).then((response) => {
+			console.log(response);
+		})
+	}, []);
+
+
 	return (
 		<div className="list">
 
