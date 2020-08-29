@@ -22,10 +22,8 @@ function App() {
 	}, []);
 	useEffect(() => {
 		let featuredMovie = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)];
-		axios.get(fetchMovie(featuredMovie.id)).then((response) => {
-			console.log('movie', response);
-		})
-	}, [topRatedMovies])
+		axios.get(fetchMovie(featuredMovie.id)).then((response) => console.log('movie', response));
+	}, [topRatedMovies]);
 
   const readMore = (e) => {
 	setTruncLine(0);
