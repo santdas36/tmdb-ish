@@ -16,8 +16,6 @@ position: relative;
 }
 .list__items {
 display: flex;
-overflow-y: scroll;
-overflow-x: visible;
 scrollbar-width: none;
 -ms-overflow-style: none;
 }
