@@ -9,7 +9,7 @@ function List() {
 
 	useEffect(() => {
 		axios.get(requests.fetchGenres).then((response) => {
-			console.log(response);
+			setGenres(response.data.genres);
 		})
 	}, []);
 
@@ -32,16 +32,9 @@ function List() {
 			<div class="list__genreList">
 				<h4>Movies by Genre</h4>
 				<div class="list__genres">
-					<Button className="app__button" variant="contained" disableFocusRipple>Action</Button>
-					<Button className="app__button" variant="contained" disableFocusRipple>Animation</Button>
-					<Button className="app__button" variant="contained" disableFocusRipple>Comedy</Button>
-					<Button className="app__button" variant="contained" disableFocusRipple>Crime</Button>
-					<Button className="app__button" variant="contained" disableFocusRipple>Epic</Button>
-					<Button className="app__button" variant="contained" disableFocusRipple>Drama</Button>
-					<Button className="app__button" variant="contained" disableFocusRipple>Fantasy</Button>
-					<Button className="app__button" variant="contained" disableFocusRipple>Romance</Button>
-					<Button className="app__button" variant="contained" disableFocusRipple>Sci-Fi</Button>
-					<Button className="app__button" variant="contained" disableFocusRipple>Thriller</Button>
+					{ genres?.map((genre) => (
+						<Button className="app__button" onClick={() => console.log(genre.name, genre.id)} variant="contained" disableFocusRipple>{genre.name}</Button>
+					)};
 				</div>
 			</div>
 
