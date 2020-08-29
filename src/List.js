@@ -24,11 +24,12 @@ function List() {
 			<div class="list__trending">
 				<h4>Trending Movies and TV Shows</h4>
 				<div class="list__items">
-					{ popularMovies?.map((movie) => 
+					{ popularMovies?.slice(0, 6).map((movie) => 
 						(<div class="list__item">
 							<img src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} />
 						</div>)
 					)}
+					<div class="list__item"></div>
 				</div>
 			</div>
 
