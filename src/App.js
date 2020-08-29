@@ -45,7 +45,7 @@ function App() {
 		<ModalVideo
 			channel='youtube'
 			isOpen={playing}
-			videoId={featuredMovie.videos.results[results.length - 1].key}
+			videoId={featuredMovie.videos.results[featuredMovie.videos.results.length - 1].key}
 			onClose={() => setPlaying(false)}
 		/>
 		<div className="app__header">
