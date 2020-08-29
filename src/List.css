@@ -9,7 +9,7 @@ margin-bottom: 2rem;
 }
 
 .list__trending {
-flex: 0 0 calc(60% - 2rem);
+flex: 0 0 calc(100% - 400px - 2rem);
 margin-right: 2rem;
 position: relative;
 -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
@@ -31,7 +31,7 @@ margin-left: 1rem;
 
 
 .list__genreList {
-flex: 0 0 40%;
+flex: 0 0 400px;
 }
 .list__genres {
 display: flex;
