@@ -83,8 +83,8 @@ text-transform: uppercase;
 font-weight: 900;
 }
 .app__featuredDesc {
-max-width: 400px;
-min-width: 300px;
+max-width: 600px;
+min-width: 360px;
 width: 50%;
 }
 .app__featuredDesc  a {
