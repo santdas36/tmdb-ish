@@ -22,7 +22,7 @@ function App() {
 			let featured = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)];
 			axios.get(fetchMovie(topRatedMovies.id)).then((response) => {
 				console.log('movie', response);
-			}
+			});
 		})
 	}, []);
 
