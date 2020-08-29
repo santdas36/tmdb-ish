@@ -17,9 +17,13 @@ function App() {
 
 	useEffect(() => {
 		axios.get(requests.fetchTopRatedMovies).then((response) => {		
-			console.log(response);
+			setTopRatedMovies(response.data.results);
 		})
 	}, []);
+	useEffect(() => {
+		let featuredMovie = topRatedMovies[Math.floor(Math.random * topRatedMovies.length)];
+		console.log(featuredMovie);
+	}, [topRatedMovies])
 
   const readMore = (e) => {
 	setTruncLine(0);
