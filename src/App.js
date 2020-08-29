@@ -48,7 +48,8 @@ function App() {
 			</ul>
 			<h1 className="app__title">TMDB</h1>
 		</div>
-		<div className="app__featured">
+		{featuredMovie && 
+		(<div className="app__featured">
 			<p className="app__featuredInfo">Today's Featured Film</p>
 			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title}</h2>
 			<TextTruncate
@@ -63,7 +64,8 @@ function App() {
 				<p className="app__featuredLikes">3.4<small> ({featuredMovie.vote_count})</small></p>
 			</div>
 			<Button className="app__button" variant="contained" startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
-		</div>
+		</div>)
+		}
 		<List />
     </div>
   );
