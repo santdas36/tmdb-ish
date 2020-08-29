@@ -34,7 +34,7 @@ function List() {
 				<div class="list__genres">
 					{ genres?.map((genre) => (
 						<Button className="app__button" onClick={() => console.log(genre.name, genre.id)} variant="contained" disableFocusRipple>{genre.name}</Button>
-					))};
+					))}
 				</div>
 			</div>
 
