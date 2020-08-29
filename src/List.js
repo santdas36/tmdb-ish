@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from '@material-ui/core/Button';
 import "./List.css";
 import axios from './axios';
-import request from './requests';
+import request from './api';
 
 function List() {
 	const [genres, setGenres] = useState([]);

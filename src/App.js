@@ -8,7 +8,7 @@ import TextTruncate from "react-text-truncate";
 import List from "./List";
 import "./App.css";
 import axios from './axios';
-import request from './requests';
+import request from './api';
 
 
 function App() {
