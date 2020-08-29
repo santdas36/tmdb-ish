@@ -58,14 +58,18 @@ background-position: 0% 100%;
 .list__itemInfo {
 position: absolute;
 left: 0;
-bottom: 0;
+bottom: -3rem;
 padding: 1rem;
 z-index: 9;
+}
+.list__item:hover .list__itemInfo {
+bottom: -0;
 }
 .list__itemTitle {
 white-space: nowrap;
 text-overflow: ellipsis;
 overflow: hidden;
+width: 100%;
 }
 .list__itemOverview {
 height: 2.4rem;
