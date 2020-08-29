@@ -19,8 +19,7 @@ display: flex;
 overflow-y: scroll;
 }
 .list__items > .list__item {
-flex: 0 0 60%;
-height: 45%;
+flex: 55%;
 background: #fff;
 border-radius: 1rem;
 overflow: hidden;
