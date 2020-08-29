@@ -27,7 +27,7 @@ function List() {
 					{ popularMovies?.slice(0, 6).map((movie) => 
 						(<div class="list__item">
 							<img src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} />
-							<div className="list__itemInfo"
+							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title}</h5>
 								<p className="list__itemOverview">{movie.overview}</p>
 							</div>
