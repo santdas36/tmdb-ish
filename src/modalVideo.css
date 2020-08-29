@@ -11,24 +11,23 @@
 }
 
 .modal-video-movie-wrap {
-	display: grid;
-	place-items: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100vw;
 	height: 100vh;
 }
 
 .modal-video-movie-wrap iframe {
-	max-width: 720px;
-	max-width: 480px;
-	width: 100%;
-	height: auto;
+	width: 720px;
+	height: 480px;
 }
 
 .modal-video-close-btn {
 	position: absolute;
 	z-index: 2;
 	top: 2rem;
-	right: rem;
+	right: 2rem;
 	display: inline-block;
 	width: 2rem;
 	height: 2rem;
