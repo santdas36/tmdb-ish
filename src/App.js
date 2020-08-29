@@ -41,7 +41,6 @@ function App() {
 			<Button className="app__button" variant="contained" startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>
 
-		<List />
     </div>
   );
 }
