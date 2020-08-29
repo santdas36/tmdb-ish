@@ -58,13 +58,13 @@ background-position: 0% 100%;
 .list__itemInfo {
 position: absolute;
 left: 0;
-bottom: -5rem;
+bottom: -6rem;
 padding: 1rem;
 z-index: 9;
 transition: bottom 0.2s ease-in;
 }
 .list__item:hover .list__itemInfo {
-bottom: -0;
+bottom: 0;
 }
 .list__itemTitle {
 white-space: nowrap;
@@ -73,7 +73,7 @@ overflow: hidden;
 width: 100%;
 margin-bottom: 1.25rem;
 }
-list__item:hover > .list__itemTitle {
+.list__item:hover > .list__itemTitle {
 margin-bottom: 0.5rem;
 }
 .list__itemOverview {
