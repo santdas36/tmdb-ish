@@ -17,13 +17,13 @@ function App() {
   const [featuredMovie, setFeaturedMovie] = useState([]);
 
 	useEffect(() => {
-		axios.get(requests.fetchTopRatedMovies).then((response) => setTopRatedMovies(response.data.results))
-	}, []);
-	useEffect(() => {
-			let getFeatured = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)].id;
+		axios.get(requests.fetchTopRatedMovies).then((response) => {
+			let tempMov = response.data.results;
+			setTopRatedMovies(tempMov);
+			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
 			axios.get(fetchMovie(getFeatured)).then((response) => setFeaturedMovie(response.data)).catch((err) => console.log(err));
-		
-	}, [topRatedMovies]);
+		})
+	}, []);
 
   const readMore = (e) => {
 	setTruncLine(0);
