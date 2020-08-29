@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from '@material-ui/core/Button';
+import TextTruncate from 'react-text-truncate';
 import "./List.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
