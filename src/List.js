@@ -25,7 +25,7 @@ function List() {
 		<div className="list">
 
 			<div class="list__trending">
-				<h4>Trending Movies and TV Shows</h4>
+				<h4>Popular Movies</h4>
 				<div class="list__items">
 					{ popularMovies?.slice(0, 6).map((movie) => 
 						(<div class="list__item">

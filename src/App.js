@@ -8,11 +8,24 @@ import TextTruncate from "react-text-truncate";
 import List from "./List";
 import "./App.css";
 import axios from './axios';
-import request from './api';
+import request, {imageBase, fetchMovie} from './api';
 
 
 function App() {
   const [truncLine, setTruncLine] = useState(2);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+
+	useEffect(() => {
+		axios.get(requests.fetchTopRatedMovies).then((response) => {
+			setTopRatedMovies(response.data.results);
+		}).then(() => {
+			let featured = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)];
+			axios.get(fetchMovie(topRatedMovies.id)).then((response) => {
+				console.log('movie', response);
+			}
+		})
+	}, []);
+
   const readMore = (e) => {
 	setTruncLine(0);
 	e.preventDefault();

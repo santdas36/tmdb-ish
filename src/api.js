@@ -4,10 +4,14 @@ const imageBase = "https://image.tmdb.org/t/p/original";
 const requests = {
 	searchQuery: `/search/multi?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`,
 	fetchGenres: `/genre/movie/list?api_key=${API_KEY}&language=en-US`,
-	fetchPopularMovies: `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
+	fetchPopularMovies: `/movie/popular?api_key=${API_KEY}&language=en-US`,
+	fetchTopRatedMovies: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
 	fetchTrendingMovies: `/trending/movie/week?api_key=${API_KEY}`,
 	fetchTrendingTV: `/trending/tv/week?api_key=${API_KEY}`,
 };
+const fetchMovie = (movie_id) => {
+	return `/movie/${movie_id}?api_key=${API_KEY}&language=en-US`
+}
 
-export {imageBase};
+export {imageBase, fetchMovie};
 export default requests;
