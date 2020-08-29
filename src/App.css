@@ -99,3 +99,7 @@ color: rgba(255,255,255,0.25) !important;
 .app__featuredLikes {
 margin: 0 0 8px 0.5rem;
 }
+.app__playTrailer {
+border-radius: 99px;
+text-transform: inherit;
+}

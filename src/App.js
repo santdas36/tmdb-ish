@@ -37,7 +37,7 @@ function App() {
 				<Rating name="movie-rating" value={3.5} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
 				<p className="app__featuredLikes">3.5<small> (372)</small></p>
 			</div>
-			<Button className="app__playTrailer" variant="contained" endIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
+			<Button className="app__playTrailer" variant="contained" startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>
     </div>
   );
