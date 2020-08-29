@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
-import PlayRoundedIcon from '@material-ui/icons/PlayRounded';
+import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button'; 
 import TextTruncate from 'react-text-truncate';
@@ -37,7 +37,7 @@ function App() {
 				<Rating name="movie-rating" value={3.5} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
 				<p className="app__featuredLikes">3.5<small> (372)</small></p>
 			</div>
-			<Button className="app__playTrailer" startIcon={<PlayRoundedIcon />}>Play Trailer</Button>
+			<Button className="app__playTrailer" startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>
     </div>
   );
