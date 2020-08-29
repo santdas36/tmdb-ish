@@ -6,11 +6,15 @@ import requests from './api';
 
 function List() {
 	const [genres, setGenres] = useState([]);
+	const [popularMovies, setPopularMovies] = useState([]);
 
 	useEffect(() => {
 		axios.get(requests.fetchGenres).then((response) => {
 			setGenres(response.data.genres);
 			console.log(genres);
+		});
+		axios.get(requests.fetchPopularMovies).then((response) => {
+			console.log(response);
 		})
 	}, []);
 
