@@ -14,15 +14,16 @@ import requests, {imageBase, fetchMovie} from './api';
 function App() {
   const [truncLine, setTruncLine] = useState(2);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
-
+  const [featuredMovie, setFeaturedMovie] = useState([]);
+  const [
 	useEffect(() => {
-		axios.get(requests.fetchTopRatedMovies).then((response) => {		
-			setTopRatedMovies(response.data.results);
-		})
+		axios.get(requests.fetchTopRatedMovies).then((response) => setTopRatedMovies(response.data.results))
 	}, []);
 	useEffect(() => {
-		let featuredMovie = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)];
-		axios.get(fetchMovie(550)).then((response) => console.log('movie', response));
+		if (topRatedMovies) {
+			let getFeatured = topRatedMovies[Math.floor(Math.random() * topRatedMovies.length)];
+			axios.get(fetchMovie(getFeatured.id)).then((response) => setFeaturedMovie(response.data));
+		}
 	}, [topRatedMovies]);
 
   const readMore = (e) => {
@@ -49,17 +50,17 @@ function App() {
 		</div>
 		<div className="app__featured">
 			<p className="app__featuredInfo">Today's Featured Film</p>
-			<h2 className="app__featuredTitle">Two and a Half Men</h2>
+			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title}</h2>
 			<TextTruncate
 				line={truncLine}
 				element="p"
 				containerClassName="app__featuredDesc"
 				textTruncateChild={<a href="#" onClick={readMore}><small>[more]</small></a>}
-				truncateText="…" text="Charlie Harper is a jingle writer who leads a hedonistic, carefree life. Everything changes when his good-for-nothing brother, Alan, and 10-year-old nephew, Jake, move into his Malibu beach house"
+				truncateText="…" text={featuredMovie.overview}
 			/>
 			<div className="app__featuredRating">
-				<Rating name="movie-rating" value={3.4} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
-				<p className="app__featuredLikes">3.4<small> (372)</small></p>
+				<Rating name="movie-rating" value={featuredMovie.vote_average} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
+				<p className="app__featuredLikes">3.4<small> ({featuredMovie.vote_count})</small></p>
 			</div>
 			<Button className="app__button" variant="contained" startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>
