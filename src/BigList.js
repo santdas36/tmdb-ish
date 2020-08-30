@@ -6,7 +6,6 @@ import TextTruncate from "react-text-truncate";
 import "./BigList.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
-import {Link} from "react-router-dom";
 
 function BigList({ fetchId, title, setMovieId }) {
 	const [thisMovies, setThisMovies] = useState([]);
@@ -19,11 +18,7 @@ function BigList({ fetchId, title, setMovieId }) {
 	}, [fetchId]);
 
 	const handleClick = (movie) => {
-		if (movie.media_type === 'movie') {
-			return(`/movie/${movie.id}`);
-		} else if (movie.media_type === 'tv') {
-			return(`/series/${movie.id}`);
-		}
+		setMovieId(movie.id);
 	}
 
 	return (
@@ -33,8 +28,7 @@ function BigList({ fetchId, title, setMovieId }) {
 				<h4>{title}</h4>
 				<div class="list__items list__items-big">
 					{ thisMovies?.slice(0, 10).map((movie) =>
-						(<Link to={handleClick(movie)}>
-						<div class="list__item">
+						(<div class="list__item" onClick={() => handleClick(movie)}>
 							<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}</h5>
@@ -51,8 +45,7 @@ function BigList({ fetchId, title, setMovieId }) {
 									<small className="list__likes">{movie.vote_average / 2}</small>
 								</div> }
 							</div>
-						</div>
-						</Link>)
+						</div>)
 					)}
 				</div>
 			</div>
