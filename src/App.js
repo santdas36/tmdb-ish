@@ -82,12 +82,16 @@ function App() {
   return (
     <div className="app">
 		<Header setSearchResult={setSearchResult} />
+
 		{showResults ?
 		<Results searchResult={searchResult} setMovieId={setMovieId} /> : 
 		<FeaturedMovie key={featuredMovie.id} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
+
 		<List setMovieId={setMovieId} />
 		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
 		<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
+
+		<div className="app__footer"></div>
     </div>
   );
 }
