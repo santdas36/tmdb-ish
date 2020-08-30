@@ -49,7 +49,6 @@ function App() {
 
   return (
     <div className="app">
-		<div className="app__overlay" style={overlayStyle}></div>
 		{videoId &&
 		(<ModalVideo
 			channel='youtube'
@@ -72,6 +71,7 @@ function App() {
 		</div>
 		{featuredMovie && 
 		<div className="app__featured">
+			<div className="app__overlay" style={overlayStyle}></div>
 			<p className="app__featuredInfo">Today's Featured Film</p>
 			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title}</h2>
 			<TextTruncate
