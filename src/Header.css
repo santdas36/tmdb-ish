@@ -31,7 +31,7 @@ transition: width 0.2s;
 width: calc(2rem + 1px);
 overflow: hidden;
 }
-.app__search:hover {
+.app__search.open {
 width: 12rem;
 }
 .app__searchIcon {
