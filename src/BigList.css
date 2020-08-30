@@ -5,8 +5,8 @@ background: #2c3e50;
 flex: 0 0 100%;
 }
 .list__items-big > .list__item {
-flex: 0 0 30%;
-height: 50%;
+flex: 0 0 200px;
+height: 300px;
 }
 .list__rating {
 display: flex;
