@@ -58,6 +58,19 @@ padding: 1rem;
 z-index: 9;
 transition: bottom 0.2s ease-in;
 }
+.list__itemType {
+position: absolute;
+left: 1rem;
+top: 1rem;
+padding: 1rem;
+background: #fff;
+box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+color: #2c3e50;
+font-size: 1rem;
+border-radius: 99px;
+margin: 0;
+z-index: 9;
+}
 .list__item:hover .list__itemInfo {
 bottom: 0;
 }
