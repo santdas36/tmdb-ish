@@ -14,6 +14,7 @@ function Header({setSearchResult}) {
 		e.preventDefault();
 		setInput('');
 		setSearchOpen(false);
+		inputEl.current.blur();
 	}
 
 	const searchClick = () => {
