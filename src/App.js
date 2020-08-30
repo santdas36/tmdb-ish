@@ -37,15 +37,16 @@ function App() {
 		}).catch((err) => console.log(err));	
 	}
 
+	trackPromise(getMovieInfo());
+
 	useEffect(() => {
-		trackPromise(
 		axios.get(requests.fetchTopRatedMovies).then((response) => {
 			let tempMov = response.data.results;
 			setTopRatedMovies(tempMov);
 			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
 			getMovieInfo(getFeatured);
 			setFeatTitle("Today's Featured Film");
-		}));
+		});
 	}, []);
 
 	useEffect(() => {
