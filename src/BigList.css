@@ -1,0 +1,7 @@
+.list__trending.list__big {
+flex: 0 0 100%;
+}
+.list__items-big > .list__item {
+flex: 0 0 40%;
+height: 30%;
+}
