@@ -34,9 +34,9 @@ function Header({setSearchResult}) {
 			<ul className="app__nav">
 				<li className={`app__search ${(searchOpen || input) ? "open" : ""}`} onClick={searchClick}>
 					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" />
-					<form>
+					<form onSubmit={(e) => handleSearch(e)}>
 						<input ref={inputEl} type="search" value={input} onBlur={() => setSearchOpen(false)} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
-						<button onClick={(e) => handleSearch(e)} type="submit"></button>
+						<button type="submit"></button>
 					</form>
 				</li>
 				<li><a href="#">Home</a></li>
