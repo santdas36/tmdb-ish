@@ -7,7 +7,6 @@ import Results from "./Results";
 import "./App.css";
 import axios from './axios';
 import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api';
-import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
 
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -18,7 +17,6 @@ function App() {
   const [movieId, setMovieId] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const [showResults, setShowResults] = useState(false);
-  const { promiseInProgress } = usePromiseTracker();
 
 	const getMovieInfo = (movieInfo) => {
 		axios.get(fetchMovie(movieInfo)).then((response) => {
@@ -36,8 +34,6 @@ function App() {
 			setVideoId(vidId);
 		}).catch((err) => console.log(err));	
 	}
-
-	trackPromise(getMovieInfo());
 
 	useEffect(() => {
 		axios.get(requests.fetchTopRatedMovies).then((response) => {
@@ -86,7 +82,6 @@ function App() {
   return (
     <div className="app">
 
-		{(promiseInProgress === true) ? <h3>Hey I'm a spinner loader wannabe !!!</h3> : null}
 		<Header setSearchResult={setSearchResult} />
 
 		{showResults ?
