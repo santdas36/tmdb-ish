@@ -61,7 +61,10 @@ function App() {
 			setTruncLine(2);
 			setFeatTitle('Movie');
 		}
-		setTimeout(() => {window.scrollTo(0, 0)}, 100);
+		setTimeout(() => {
+			window.scrollTo(0, 0);
+			setShowResults(false);
+		}, 100);
 	}, [movieId]);
 
 	useEffect(() => {
