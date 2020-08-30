@@ -1,5 +1,4 @@
 import React, {useState, forwardRef} from "react";
-import FlipMove from 'react-flip-move';
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
 import Rating from "@material-ui/lab/Rating";

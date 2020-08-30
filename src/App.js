@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import FlipMove from 'react-flip-move';
 import Header from "./Header";
 import FeaturedMovie from "./FeaturedMovie";
 import List from "./List";
@@ -71,7 +72,7 @@ function App() {
   return (
     <div className="app">
 		<Header setSearchResult={setSearchResult} />
-		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
+		{featuredMovie && <FlipMove><FeaturedMovie key={featuredMovie.id} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} /></FlipMove>}
 		<List setMovieId={setMovieId} />
 		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
 		<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
