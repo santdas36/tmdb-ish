@@ -11,7 +11,6 @@ import requests, {imageBase, fetchMovie} from './api';
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState([]);
-  const [playing, setPlaying] = useState(false);
   const [videoId, setVideoId] = useState('');
 
 
@@ -42,7 +41,7 @@ function App() {
   return (
     <div className="app">
 		<Header />
-		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} featuredMovie={featuredMovie} setPlaying={setPlaying} videoId={videoId} />
+		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} featuredMovie={featuredMovie} videoId={videoId} />
 		}
 		<List />
 		<BigList title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
