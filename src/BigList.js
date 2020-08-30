@@ -14,11 +14,11 @@ function BigList({ fetchId, title }) {
 		axios.get(requests.fetchId).then((response) => {
 			setThisMovies(response.data.results);
 		})
-	}, []);
+	}, [fetchId]);
 
 
 	return (
-		<div className="list">
+		<div className="list biglist">
 
 			<div class="list__trending list__big">
 				<h4>{title}</h4>

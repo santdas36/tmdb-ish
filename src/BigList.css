@@ -1,3 +1,6 @@
+.list.biglist {
+background: #2c3e50;
+}
 .list__trending.list__big {
 flex: 0 0 100%;
 }
