@@ -1,4 +1,4 @@
-import React, {useState, forwardRef} from "react";
+import React, {useState} from "react";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
 import Rating from "@material-ui/lab/Rating";
@@ -8,7 +8,7 @@ import ModalVideo from "react-modal-video";
 import "./modalVideo.css";
 import "./FeaturedMovie.css";
 
-const FeaturedMovie = forwardRef(({title, overlayStyle, featuredMovie, videoId, setTruncLine, truncLine}, ref) => {
+function FeaturedMovie ({title, overlayStyle, featuredMovie, videoId, setTruncLine, truncLine}) {
 	const [playing, setPlaying] = useState(false);
 
 	const readMore = (e) => {
@@ -43,6 +43,6 @@ const FeaturedMovie = forwardRef(({title, overlayStyle, featuredMovie, videoId, 
 			<Button className="app__button" variant="contained" onClick={() => setPlaying(true)} startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>
 	)
-});
+}
 
 export default FeaturedMovie;
