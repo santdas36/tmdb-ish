@@ -21,7 +21,7 @@ function FeaturedMovie ({title, overlayStyle, featuredMovie, videoId, setTruncLi
 	return(
 		<div className="app__featured">
 			{videoId &&
-			<Grow in={playing}>
+			<Grow in={playing} unmountOnExit>
 			<ModalVideo
 				channel='youtube'
 				isOpen='true'
