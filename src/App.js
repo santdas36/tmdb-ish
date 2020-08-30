@@ -8,6 +8,7 @@ import TextTruncate from "react-text-truncate";
 import ModalVideo from "react-modal-video";
 import "./modalVideo.css";
 import List from "./List";
+import BigList from "./BigList";
 import "./App.css";
 import axios from './axios';
 import requests, {imageBase, fetchMovie} from './api';
@@ -88,6 +89,8 @@ function App() {
 		</div>
 		}
 		<List />
+		<BigList />
+		<BigList />
     </div>
   );
 }
