@@ -7,6 +7,7 @@ import Results from "./Results";
 import "./App.css";
 import axios from './axios';
 import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api';
+import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
 
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -17,6 +18,7 @@ function App() {
   const [movieId, setMovieId] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const { promiseInProgress } = usePromiseTracker();
 
 	const getMovieInfo = (movieInfo) => {
 		axios.get(fetchMovie(movieInfo)).then((response) => {
@@ -36,13 +38,14 @@ function App() {
 	}
 
 	useEffect(() => {
+		trackPromise(
 		axios.get(requests.fetchTopRatedMovies).then((response) => {
 			let tempMov = response.data.results;
 			setTopRatedMovies(tempMov);
 			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
 			getMovieInfo(getFeatured);
 			setFeatTitle("Today's Featured Film");
-		})
+		}));
 	}, []);
 
 	useEffect(() => {
@@ -91,7 +94,7 @@ function App() {
 		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
 		<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
 
-		<div className="app__footer"></div>
+		{(promiseInProgress === true) ? <h3>Hey I'm a spinner loader wannabe !!!</h3> : null}
     </div>
   );
 }
