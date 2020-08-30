@@ -18,7 +18,7 @@ function Header({setSearchResult}) {
 	return(
 		<div className="app__header">
 			<ul className="app__nav">
-				<li className={"app__search" + (searchOpen || input) && "open"} onClick={() => {setSearchOpen(true); inputEl.current.focus();}}>
+				<li className={`app__search ${searchOpen || input ? "open" : ""}`} onClick={() => {setSearchOpen(true); inputEl.current.focus();}}>
 					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" />
 					<form>
 						<input ref={inputEl} type="search" value={input} onBlur={() => setSearchOpen(false)} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
