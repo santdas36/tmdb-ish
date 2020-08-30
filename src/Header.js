@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import "./Header.css";
 import axios from './axios';
@@ -6,6 +6,7 @@ import requests, {imageBase, fetchMovie, fetchTV} from './api';
 
 function Header({setSearchResult}) {
 	const [input, setInput] = useState('');
+	const inputEl = useRef(null);
 	const [searchOpen, setSearchOpen] = useState(false);
 
 	const handleSearch = (e) => {
@@ -17,10 +18,10 @@ function Header({setSearchResult}) {
 	return(
 		<div className="app__header">
 			<ul className="app__nav">
-				<li className={(searchOpen || input) ? "app__search open" : "app__search"} onFocus={() => setSearchOpen(true)} onBlur={() => setSearchOpen(false)}>
+				<li className={(searchOpen || input) ? "app__search open" : "app__search"} onFocus={() => {setSearchOpen(true); inputEl.current.focus();}} onBlur={() => setSearchOpen(false)}>
 					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" />
 					<form>
-						<input type="search" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
+						<input ref={inputEl} type="search" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
 						<button onClick={(e) => handleSearch(e)} type="submit"></button>
 					</form>
 				</li>
