@@ -33,6 +33,7 @@ function App() {
 
 	useEffect(() => {
 		getMovieInfo(movieId);
+		window.scrollTo(0, 0);
 	}, [movieId]);
 
   var overlayStyle = {

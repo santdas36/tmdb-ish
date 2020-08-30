@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;900&family=Mulish:wght@700;800;900&display=swap');
 
+html {
+scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Work Sans", sans-serif;
