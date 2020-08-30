@@ -84,6 +84,8 @@ function App() {
 
   return (
     <div className="app">
+
+		{(promiseInProgress === true) ? <h3>Hey I'm a spinner loader wannabe !!!</h3> : null}
 		<Header setSearchResult={setSearchResult} />
 
 		{showResults ?
@@ -94,7 +96,6 @@ function App() {
 		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
 		<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
 
-		{(promiseInProgress === true) ? <h3>Hey I'm a spinner loader wannabe !!!</h3> : null}
     </div>
   );
 }
