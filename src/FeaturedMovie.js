@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
 import Rating from "@material-ui/lab/Rating";
@@ -7,6 +7,13 @@ import TextTruncate from "react-text-truncate";
 import "./FeaturedMovie.css";
 
 function FeaturedMovie({overlayStyle, featuredMovie, setPlaying}) {
+	const [truncLine, setTruncLine] = useState(2);
+	const readMore = (e) => {
+		setTruncLine(0);
+		e.preventDefault();
+		e.target.style.display = 'none';
+	}
+
 	return(
 		<div className="app__featured">
 			<div className="app__overlay" style={overlayStyle}></div>

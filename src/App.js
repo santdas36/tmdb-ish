@@ -10,7 +10,6 @@ import requests, {imageBase, fetchMovie} from './api';
 
 
 function App() {
-  const [truncLine, setTruncLine] = useState(2);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState([]);
   const [playing, setPlaying] = useState(false);
@@ -29,12 +28,6 @@ function App() {
 			}).catch((err) => console.log(err));
 		})
 	}, []);
-
-  const readMore = (e) => {
-	setTruncLine(0);
-	e.preventDefault();
-	e.target.style.display = 'none';
-  }
 
   var overlayStyle = {
 	backgroundImage: `url(${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
