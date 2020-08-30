@@ -53,6 +53,11 @@ function App() {
 			setTruncLine(2);
 			setFeatTitle('Series');
 		}
+		if(!movieId.media_type) {
+			getMovieInfo(movieId.id);
+			setTruncLine(2);
+			setFeatTitle('Movie');
+		}
 		setTimeout(() => {window.scrollTo(0, 0)}, 100);
 	}, [movieId]);
 
