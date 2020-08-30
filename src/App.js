@@ -43,9 +43,9 @@ function App() {
 		<Header />
 		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} featuredMovie={featuredMovie} videoId={videoId} />
 		}
-		<List />
-		<BigList title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
-		<BigList title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
+		<List getMovieInfo={getMovieInfo} />
+		<BigList getMovieInfo={getMovieInfo} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
+		<BigList getMovieInfo={getMovieInfo} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
     </div>
   );
 }

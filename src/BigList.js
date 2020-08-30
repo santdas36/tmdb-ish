@@ -7,7 +7,7 @@ import "./BigList.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
 
-function BigList({ fetchId, title }) {
+function BigList({ fetchId, title, getMovieInfo }) {
 	const [thisMovies, setThisMovies] = useState([]);
 
 	useEffect(() => {
@@ -25,7 +25,7 @@ function BigList({ fetchId, title }) {
 				<h4>{title}</h4>
 				<div class="list__items list__items-big">
 					{ thisMovies?.slice(0, 15).map((movie) => 
-						(<div class="list__item">
+						(<div class="list__item" onClick={getMovieInfo(movie.id)}>
 							<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}</h5>
