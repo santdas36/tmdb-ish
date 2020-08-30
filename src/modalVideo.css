@@ -17,9 +17,10 @@
 
 .modal-video-movie-wrap iframe {
 	max-width: 720px;
-	width: 75%;
+	width: 100%;
 	height: 0;
-	padding-bottom: 50%;
+	padding-bottom: 56.25%;
+	box-sizing: content-box;
 }
 
 .modal-video-close-btn {
