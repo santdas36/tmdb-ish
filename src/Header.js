@@ -10,7 +10,10 @@ function Header() {
 			<ul className="app__nav">
 				<li className="app__search">
 					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" />
-					<input type="search" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
+					<form>
+						<input type="search" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
+						<button type="submit"></button>
+					</form>
 				</li>
 				<li><a href="#">Home</a></li>
 				<li><a href="#">Movies</a></li>
