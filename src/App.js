@@ -39,6 +39,7 @@ function App() {
 			setTopRatedMovies(tempMov);
 			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
 			getMovieInfo(getFeatured);
+			setFeatTitle("Today's Featured Film");
 		})
 	}, []);
 
