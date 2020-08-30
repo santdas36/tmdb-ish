@@ -24,7 +24,7 @@ function BigList({ fetchId, title, getMovieInfo }) {
 			<div class="list__trending list__big">
 				<h4>{title}</h4>
 				<div class="list__items list__items-big">
-					{ thisMovies?.slice(0, 15).map((movie) => 
+					{ thisMovies?.slice(0, 10).map((movie) => 
 						(<div class="list__item" onClick={getMovieInfo(movie.id)}>
 							<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 							<div className="list__itemInfo">
