@@ -10,7 +10,7 @@ import requests, {imageBase, fetchMovie, fetchTV} from './api';
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState([]);
-  const [featTitle, setFeatTitle] = useState('Today's Featured Film');
+  const [featTitle, setFeatTitle] = useState("Today's Featured Film");
   const [truncLine, setTruncLine] = useState(2);
   const [videoId, setVideoId] = useState('');
   const [movieId, setMovieId] = useState([]);
@@ -45,10 +45,12 @@ function App() {
 		if(movieId.media_type === 'movie') {
 			getMovieInfo(movieId.id);
 			setTruncLine(2);
+			setFeatTitle('Movie');
 		}
 		if(movieId.media_type === 'tv') {
 			getTVInfo(movieId.id);
 			setTruncLine(2);
+			setFeatTitle('Series');
 		}
 		setTimeout(() => {window.scrollTo(0, 0)}, 100);
 	}, [movieId]);
