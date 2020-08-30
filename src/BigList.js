@@ -19,9 +19,9 @@ function BigList({ fetchId, title, setMovieId }) {
 
 	const handleClick = (movie) => {
 		if (movie.media_type === 'movie') {
-			console.log(`/movie/$(movie.id)`);
+			console.log(`/movie/${movie.id}`);
 		} else if (movie.media_type === 'tv') {
-			console.log(`/series/$(movie.id)`);
+			console.log(`/series/${movie.id}`);
 		}
 	}
 
