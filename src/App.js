@@ -14,7 +14,7 @@ function App() {
   const [videoId, setVideoId] = useState('');
 
 
-	async function getMovieInfo(movieInfo) {
+	const getMovieInfo = (movieInfo) => {
 		axios.get(fetchMovie(movieInfo)).then((response) => {
 			setFeaturedMovie(response.data);
 			let videos = response.data.videos.results;
