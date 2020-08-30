@@ -79,7 +79,7 @@ function App() {
     <div className="app">
 		<Header setSearchResult={setSearchResult} />
 		{showResults ?
-		<h2>showResults</h2> : 
+		<Results searchResult={searchResult} setMovieId={setMovieId} /> : 
 		<FeaturedMovie key={featuredMovie.id} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 		<List setMovieId={setMovieId} />
 		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
