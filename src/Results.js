@@ -16,8 +16,8 @@ function Results({ searchResult, setMovieId }) {
 		<div className="results">
 			<h4>Search Results</h4>
 			<div class="results__list">
-				{ searchResult?.map((movie) => {if (movie.media_type === 'tv' || movie.media_type === 'movie')
-					{ <div class="list__item" onClick={() => handleClick(movie)}>
+				{ searchResult?.map((movie) => 
+					(<div class="list__item" onClick={() => handleClick(movie)}>
 						<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 						<h5 className="list__itemType">{movie.media_type}</h5>
 						<div className="list__itemInfo">
@@ -35,7 +35,7 @@ function Results({ searchResult, setMovieId }) {
 								<small className="list__likes">{movie.vote_average / 2}</small>
 							</div> }
 						</div>
-					</div> }}
+					</div> )
 				)}
 			</div>
 		</div>
