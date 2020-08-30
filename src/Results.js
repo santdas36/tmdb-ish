@@ -4,6 +4,7 @@ import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import Rating from "@material-ui/lab/Rating";
 import TextTruncate from "react-text-truncate";
 import "./Results.css";
+import {imageBase} from './api';
 
 function Results({ searchResult, setMovieId }) {
 
