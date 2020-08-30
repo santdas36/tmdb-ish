@@ -12,7 +12,7 @@ flex-flow: row wrap;
 .results__list > .list__item {
 width: calc((100% / 3) - 2rem);
 height: 0;
-padding-bottom: 150%;
+padding-bottom: calc(((100% / 3) - 2rem) * 1.5);
 background: #fff;
 border-radius: 1rem;
 overflow: hidden;
