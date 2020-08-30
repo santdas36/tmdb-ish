@@ -6,7 +6,7 @@ import BigList from "./BigList";
 import "./App.css";
 import axios from './axios';
 import requests, {imageBase, fetchMovie} from './api';
-
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -44,12 +44,31 @@ function App() {
 
   return (
     <div className="app">
-		<Header />
-		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} featuredMovie={featuredMovie} videoId={videoId} />
-		}
-		<List setMovieId={setMovieId} />
-		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
-		<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
+		<Router>
+			<Header />
+			<Switch>
+				<Route path="/">
+					<div>
+						{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} title="Today's Featured Film" featuredMovie={featuredMovie} videoId={videoId} />}
+						<List setMovieId={setMovieId} />
+						<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
+						<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
+					</div>
+				</Route>
+				<Route path="/movie/:id">
+					<div>
+						{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} title="Movie" featuredMovie={featuredMovie} videoId={videoId} />}
+						<BigList setMovieId={setMovieId} title="You May Also Like" fetchId={requests.fetchTrendingMovies}/>
+					</div>
+				</Route>
+				<Route path="/series/:id">
+					<div>
+						{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} title="Series" featuredMovie={featuredMovie} videoId={videoId} />}
+						<BigList setMovieId={setMovieId} title="You May Also Like" fetchId={requests.fetchTrendingMovies}/>
+					</div>
+				</Route>
+			</Switch>
+		</Router>
     </div>
   );
 }

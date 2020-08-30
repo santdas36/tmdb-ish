@@ -8,7 +8,7 @@ import ModalVideo from "react-modal-video";
 import "./modalVideo.css";
 import "./FeaturedMovie.css";
 
-function FeaturedMovie({overlayStyle, featuredMovie, videoId}) {
+function FeaturedMovie({title, overlayStyle, featuredMovie, videoId}) {
 	const [truncLine, setTruncLine] = useState(2);
 	const [playing, setPlaying] = useState(false);
 
@@ -28,7 +28,7 @@ function FeaturedMovie({overlayStyle, featuredMovie, videoId}) {
 				onClose={() => setPlaying(false)}
 				/>}
 			<div className="app__overlay" style={overlayStyle}></div>
-			<p className="app__featuredInfo">Today's Featured Film</p>
+			<p className="app__featuredInfo">{title}</p>
 			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title}</h2>
 			<TextTruncate
 				line={truncLine}
