@@ -30,6 +30,7 @@ border-radius: 99px;
 transition: width 0.2s;
 width: calc(2rem + 1px);
 overflow: hidden;
+cursor: pointer;
 }
 .app__search.open {
 width: 12rem;
