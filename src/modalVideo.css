@@ -16,8 +16,10 @@
 }
 
 .modal-video-movie-wrap iframe {
-	width: 720px;
-	height: 480px;
+	max-width: 720px;
+	width: 75%;
+	height: 0;
+	padding-bottom: 50%;
 }
 
 .modal-video-close-btn {
