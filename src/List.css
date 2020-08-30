@@ -11,6 +11,7 @@ margin-bottom: 2rem;
 .list__trending {
 flex: 0 0 calc(100% - 400px - 2rem);
 margin-right: 2rem;
+padding: 10px;
 position: relative;
 -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
 }
