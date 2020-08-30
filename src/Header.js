@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import "./Header.css";
 import axios from './axios';
-import requests, {imageBase, fetchMovie, fetchTV} from './api';
+import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api';
 
 function Header({setSearchResult}) {
 	const [input, setInput] = useState('');
@@ -10,11 +10,18 @@ function Header({setSearchResult}) {
 	const searchEl = useRef(null);
 	const [searchOpen, setSearchOpen] = useState(false);
 
+	const searchQuery = (query) => {
+		axios.get(fetchSearchString(query)).then((response) => {
+			console.log('search >>>', response.data.results);
+		}).catch((err) => console.log(err));	
+	}
+
 	const handleSearch = (e) => {
 		e.preventDefault();
-		setInput('');
+		searchQuery(input);
 		setSearchOpen(false);
 		inputEl.current.blur();
+		setTimeout(() => setInput(''), 100)
 	}
 
 	const searchClick = () => {

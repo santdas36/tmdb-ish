@@ -15,6 +15,9 @@ const fetchMovie = (id) => {
 const fetchTV = (id) => {
 	return `/tv/${id}?api_key=${API_KEY}&append_to_response=videos`
 }
+const fetchSearchString = (query) => {
+	return `/search/multi?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+}
 
-export {imageBase, fetchMovie, fetchTV};
+export {imageBase, fetchMovie, fetchTV, fetchSearchString};
 export default requests;

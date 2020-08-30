@@ -5,7 +5,7 @@ import List from "./List";
 import BigList from "./BigList";
 import "./App.css";
 import axios from './axios';
-import requests, {imageBase, fetchMovie, fetchTV} from './api';
+import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api';
 
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
