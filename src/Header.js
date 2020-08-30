@@ -21,8 +21,8 @@ function Header({setSearchResult}) {
 		e.stopPropagation();
 		searchQuery(input);
 		setSearchOpen(false);
-		setInput('');
 		inputEl.current.blur();
+		setTimeout(() => setInput(''), 100);
 	}
 
 	const searchClick = () => {
