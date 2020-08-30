@@ -10,7 +10,6 @@ display: flex;
 flex-flow: row wrap;
 }
 .results__list > .list__item {
-flex: 1;
 width: calc((100% / 3) - 2rem);
 height: 0;
 padding-bottom: 178%;
