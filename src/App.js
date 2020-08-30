@@ -9,7 +9,7 @@ import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api
 
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
-  const [featuredMovie, setFeaturedMovie] = useState(null);
+  const [featuredMovie, setFeaturedMovie] = useState([]);
   const [featTitle, setFeatTitle] = useState("Today's Featured Film");
   const [truncLine, setTruncLine] = useState(2);
   const [videoId, setVideoId] = useState('');
@@ -64,7 +64,7 @@ function App() {
 
 	useEffect(() => {
 		if (searchResult) {
-			setFeaturedMovie(null);
+			setFeaturedMovie([]);
 		}
 	}, [searchResult]);
 
