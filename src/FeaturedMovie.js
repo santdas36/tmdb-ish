@@ -28,7 +28,7 @@ function FeaturedMovie({title, overlayStyle, featuredMovie, videoId, setTruncLin
 				/>}
 			<div className="app__overlay" style={overlayStyle}></div>
 			<p className="app__featuredInfo">{title}</p>
-			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title}</h2>
+			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title || featuredMovie.name || featuredMovie.original_name}</h2>
 			<TextTruncate
 				line={truncLine}
 				element="p"
