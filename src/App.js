@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ModalVideo from "react-modal-video";
 import "./modalVideo.css";
+import Header from "./Header";
 import FeaturedMovie from "./FeaturedMovie";
 import List from "./List";
 import BigList from "./BigList";
