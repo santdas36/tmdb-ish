@@ -5,6 +5,13 @@ background: #2c3e50;
 flex: 0 0 100%;
 }
 .list__items-big > .list__item {
-flex: 0 0 33%;
-height: 60%;
+flex: 0 0 30%;
+height: 50%;
+}
+.list__rating {
+display: flex;
+align-items: center;
+}
+.list__likes {
+margin: 0 0 8px 0.5rem;
 }

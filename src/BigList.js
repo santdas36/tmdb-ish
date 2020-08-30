@@ -37,9 +37,9 @@ function BigList({ fetchId, title }) {
 									text={movie.overview}
 								/>
 								{ movie.vote_average && 
-								<div className="app__featuredRating">
+								<div className="list__rating">
 									<Rating name="movie-rating" className="movieRating" value={movie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
-									<small className="app__featuredLikes">{movie.vote_average / 2}</small>
+									<small className="list__likes">{movie.vote_average / 2}</small>
 								</div> }
 							</div>
 						</div>)
