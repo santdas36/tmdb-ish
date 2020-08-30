@@ -19,7 +19,7 @@ function Results({ searchResult, setMovieId }) {
 				{ searchResult?.map((movie) =>
 					(<div class="list__item" onClick={() => handleClick(movie)}>
 						<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
-						<h5 className="list__itemType">{movie.media_type}<h5>
+						<h5 className="list__itemType">{movie.media_type}</h5>
 						<div className="list__itemInfo">
 							<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}</h5>
 							<TextTruncate
