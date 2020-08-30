@@ -18,6 +18,7 @@ function Header({setSearchResult}) {
 
 	const handleSearch = (e) => {
 		e.preventDefault();
+		e.stopPropagation();
 		searchQuery(input);
 		setSearchOpen(false);
 		setInput('');
@@ -34,9 +35,9 @@ function Header({setSearchResult}) {
 			<ul className="app__nav">
 				<li className={`app__search ${(searchOpen || input) ? "open" : ""}`} onClick={searchClick}>
 					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" />
-					<form onSubmit={(e) => handleSearch(e)}>
+					<form>
 						<input ref={inputEl} type="search" value={input} onBlur={() => setSearchOpen(false)} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
-						<button type="submit"></button>
+						<button onClick={(e) => handleSearch(e)} type="submit"></button>
 					</form>
 				</li>
 				<li><a href="#">Home</a></li>
