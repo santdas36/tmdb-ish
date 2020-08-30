@@ -33,8 +33,7 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		var ej = 1;
-		console.log(ej++, movieId);
+		console.log(movieId);
 	}, [movieId]);
 
   var overlayStyle = {
