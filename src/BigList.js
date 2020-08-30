@@ -9,9 +9,9 @@ import requests, {imageBase} from './api';
 
 function BigList({ fetchId, title }) {
 	const [thisMovies, setThisMovies] = useState([]);
-	console.log(requests.fetchId);
+	console.log(fetchId);
 	useEffect(() => {
-		axios.get(requests.fetchId).then((response) => {
+		axios.get(fetchId).then((response) => {
 			setThisMovies(response.data.results);
 		})
 	}, [fetchId]);

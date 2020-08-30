@@ -89,8 +89,8 @@ function App() {
 		</div>
 		}
 		<List />
-		<BigList title="Trending Movies" fetchId="fetchTrendingMovies"/>
-		<BigList title="Trending Series" fetchId="fetchTrendingTV"/>
+		<BigList title="Trending Movies" fetchId={requests.fetchTrendingMovies}/>
+		<BigList title="Trending Series" fetchId={requests.fetchTrendingTV}/>
     </div>
   );
 }
