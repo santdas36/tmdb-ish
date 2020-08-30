@@ -8,7 +8,7 @@ function Header({setSearchResult}) {
 	const [input, setInput] = useState('');
 	const [searchOpen, setSearchOpen] = useState(false);
 
-	const handleSearch = (e) = {
+	const handleSearch = (e) => {
 		e.preventDefault();
 		setInput('');
 		setSearchOpen(false);
