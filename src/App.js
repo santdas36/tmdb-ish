@@ -64,7 +64,7 @@ function App() {
 	}, [movieId]);
 
 	useEffect(() => {
-		if (searchResult[0].id) {
+		if (searchResult[0]?.id) {
 			setShowResults(true);
 		}
 	}, [searchResult]);
