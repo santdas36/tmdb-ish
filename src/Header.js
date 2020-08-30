@@ -12,7 +12,7 @@ function Header({setSearchResult}) {
 
 	const searchQuery = (query) => {
 		axios.get(fetchSearchString(query)).then((response) => {
-			console.log('search >>>', response.data.results);
+			setSearchResult(response.data.results);
 		}).catch((err) => console.log(err));	
 	}
 
@@ -20,8 +20,8 @@ function Header({setSearchResult}) {
 		e.preventDefault();
 		searchQuery(input);
 		setSearchOpen(false);
+		setInput('');
 		inputEl.current.blur();
-		setTimeout(() => setInput(''), 100)
 	}
 
 	const searchClick = () => {

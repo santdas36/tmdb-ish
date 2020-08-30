@@ -9,7 +9,7 @@ import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api
 
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
-  const [featuredMovie, setFeaturedMovie] = useState([]);
+  const [featuredMovie, setFeaturedMovie] = useState(null);
   const [featTitle, setFeatTitle] = useState("Today's Featured Film");
   const [truncLine, setTruncLine] = useState(2);
   const [videoId, setVideoId] = useState('');
@@ -61,6 +61,12 @@ function App() {
 		}
 		setTimeout(() => {window.scrollTo(0, 0)}, 100);
 	}, [movieId]);
+
+	useEffect(() => {
+		if (searchResult) {
+			setFeaturedMovie(null);
+		}
+	}, [searchResult]);
 
   var overlayStyle = {
 	backgroundImage: `url(${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
