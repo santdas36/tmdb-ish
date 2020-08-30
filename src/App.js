@@ -18,7 +18,7 @@ function App() {
 		axios.get(fetchMovie(movieInfo)).then((response) => {
 			setFeaturedMovie(response.data);
 			let videos = response.data.videos.results;
-			let vidId = videos[videos.length - 1].key;
+			let vidId = videos[0].key;
 			setVideoId(vidId);
 		}).catch((err) => console.log(err));	
 	}
