@@ -19,9 +19,9 @@ function BigList({ fetchId, title, setMovieId }) {
 
 	const handleClick = (movie) => {
 		if (movie.media_type === 'movie') {
-			console.log(`/movie/${movie.id}`);
+			return(`/movie/${movie.id}`);
 		} else if (movie.media_type === 'tv') {
-			console.log(`/series/${movie.id}`);
+			return(`/series/${movie.id}`);
 		}
 	}
 
@@ -31,8 +31,9 @@ function BigList({ fetchId, title, setMovieId }) {
 			<div class="list__trending list__big">
 				<h4>{title}</h4>
 				<div class="list__items list__items-big">
-					{ thisMovies?.slice(0, 10).map((movie) => 
-						(<div class="list__item" onClick={() => handleClick(movie)}>
+					{ thisMovies?.slice(0, 10).map((movie) =>
+						(<Link to={handleClick(movie)}>
+						<div class="list__item">
 							<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}</h5>
@@ -49,7 +50,8 @@ function BigList({ fetchId, title, setMovieId }) {
 									<small className="list__likes">{movie.vote_average / 2}</small>
 								</div> }
 							</div>
-						</div>)
+						</div>
+						</Link>)
 					)}
 				</div>
 			</div>
