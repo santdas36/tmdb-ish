@@ -44,7 +44,7 @@
 .modal-video-close-btn {
 	position: absolute;
 	z-index: 2;
-	top: -3rem;
+	top: -2.5rem;
 	right: 1rem;
 	display: inline-block;
 	width: 1.5rem;
