@@ -21,8 +21,11 @@ function List({setMovieId}) {
 	}, []);
 
 	const handleClick = (movie) => {
-		setMovieId(movie.id);
-		console.log('from tile >>>', movie);
+		if (movie.media_type === 'movie') {
+			console.log(`/movie/$(movie.id)`);
+		} else if (movie.media_type === 'tv') {
+			console.log(`/series/$(movie.id)`);
+		}
 	}
 
 	return (
