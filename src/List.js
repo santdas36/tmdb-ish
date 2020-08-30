@@ -7,7 +7,7 @@ import "./List.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
 
-function List({getMovieInfo}) {
+function List({setMovieId}) {
 	const [genres, setGenres] = useState([]);
 	const [popularMovies, setPopularMovies] = useState([]);
 
@@ -28,7 +28,7 @@ function List({getMovieInfo}) {
 				<h4>Popular Movies</h4>
 				<div class="list__items">
 					{ popularMovies?.slice(0, 10).map((movie) => 
-						(<div class="list__item" onClick={getMovieInfo(movie.id)}>
+						(<div class="list__item" onClick={setMovieId(movie.id)}>
 							<img src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} />
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title}</h5>

@@ -12,7 +12,7 @@ function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState([]);
   const [videoId, setVideoId] = useState('');
-
+  const [movieId, setMovieId] = useState('');
 
 	const getMovieInfo = (movieInfo) => {
 		axios.get(fetchMovie(movieInfo)).then((response) => {
@@ -32,6 +32,11 @@ function App() {
 		})
 	}, []);
 
+	useEffect(() => {
+		var ej = 1;
+		console.log(ej++, movieId);
+	}, [movieId]);
+
   var overlayStyle = {
 	backgroundImage: `url(${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
 	backgroundSize: 'cover',
@@ -43,9 +48,9 @@ function App() {
 		<Header />
 		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} featuredMovie={featuredMovie} videoId={videoId} />
 		}
-		<List getMovieInfo={getMovieInfo} />
-		<BigList getMovieInfo={getMovieInfo} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
-		<BigList getMovieInfo={getMovieInfo} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
+		<List setMovieId={setMovieId} />
+		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
+		<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
     </div>
   );
 }
