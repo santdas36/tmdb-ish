@@ -21,7 +21,7 @@ function List({setMovieId}) {
 	}, []);
 
 	const handleClick = (movie) => {
-		setMovieId(movie.id);
+		setMovieId(movie);
 	}
 
 	return (

@@ -5,16 +5,26 @@ import List from "./List";
 import BigList from "./BigList";
 import "./App.css";
 import axios from './axios';
-import requests, {imageBase, fetchMovie} from './api';
+import requests, {imageBase, fetchMovie, fetchTV} from './api';
 
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState([]);
+  const [featTitle, setFeatTitle] = useState('Today's Featured Film');
+  const [truncLine, setTruncLine] = useState(2);
   const [videoId, setVideoId] = useState('');
-  const [movieId, setMovieId] = useState('');
+  const [movieId, setMovieId] = useState([]);
 
 	const getMovieInfo = (movieInfo) => {
 		axios.get(fetchMovie(movieInfo)).then((response) => {
+			setFeaturedMovie(response.data);
+			let videos = response.data.videos.results;
+			let vidId = videos[0].key;
+			setVideoId(vidId);
+		}).catch((err) => console.log(err));	
+	}
+	const getTVInfo = (movieInfo) => {
+		axios.get(fetchTV(movieInfo)).then((response) => {
 			setFeaturedMovie(response.data);
 			let videos = response.data.videos.results;
 			let vidId = videos[0].key;
@@ -32,8 +42,15 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		getMovieInfo(movieId);
-		window.scrollTo(0, 0);
+		if(movieId.media_type === 'movie') {
+			getMovieInfo(movieId.id);
+			setTruncLine(2);
+		}
+		if(movieId.media_type === 'tv') {
+			getTVInfo(movieId.id);
+			setTruncLine(2);
+		}
+		setTimeout(() => {window.scrollTo(0, 0)}, 100);
 	}, [movieId]);
 
   var overlayStyle = {
@@ -45,7 +62,7 @@ function App() {
   return (
     <div className="app">
 		<Header />
-		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} title="Today's Featured Film" featuredMovie={featuredMovie} videoId={videoId} />}
+		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 		<List setMovieId={setMovieId} />
 		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
 		<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>

@@ -18,7 +18,7 @@ function BigList({ fetchId, title, setMovieId }) {
 	}, [fetchId]);
 
 	const handleClick = (movie) => {
-		setMovieId(movie.id);
+		setMovieId(movie);
 	}
 
 	return (

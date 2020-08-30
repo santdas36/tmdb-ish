@@ -8,8 +8,7 @@ import ModalVideo from "react-modal-video";
 import "./modalVideo.css";
 import "./FeaturedMovie.css";
 
-function FeaturedMovie({title, overlayStyle, featuredMovie, videoId}) {
-	const [truncLine, setTruncLine] = useState(2);
+function FeaturedMovie({title, overlayStyle, featuredMovie, videoId, setTruncLine, truncLine}) {
 	const [playing, setPlaying] = useState(false);
 
 	const readMore = (e) => {
