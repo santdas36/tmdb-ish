@@ -80,7 +80,7 @@ function App() {
 		<Header setSearchResult={setSearchResult} />
 		{showResults ?
 		(<h2>showResults</h2>) : 
-		(<FeaturedMovie key={featuredMovie.id} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
+		(<FeaturedMovie key={featuredMovie.id} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />
 		<List setMovieId={setMovieId} />
 		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
 		<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
