@@ -90,7 +90,14 @@ overflow: hidden;
 .list__item .movieRating {
 transform-origin: 0 0;
 transform: scale(0.9);
-margin-left: -2px;
+margin-left: -4px;
+}
+.list__rating {
+display: flex;
+align-items: center;
+}
+.list__likes {
+margin: 0 0 8px -4px;
 }
 .list__genreList {
 flex: 0 0 400px;

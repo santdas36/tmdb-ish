@@ -39,7 +39,11 @@ function List() {
 									truncateText="…"
 									text={movie.overview}
 								/>
-								{movie.vote_average && <Rating name="movie-rating" className="movieRating" value={movie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>}
+								{movie.vote_average && 
+								<div className="list__rating">
+									<Rating name="movie-rating" className="movieRating" value={movie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
+									<small className="list__likes">{movie.vote_average / 2}</small>
+								</div> }
 							</div>
 						</div>)
 					)}

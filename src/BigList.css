@@ -8,10 +8,3 @@ flex: 0 0 100%;
 flex: 0 0 200px;
 height: 300px;
 }
-.list__rating {
-display: flex;
-align-items: center;
-}
-.list__likes {
-margin: 0 0 8px 0;
-}
