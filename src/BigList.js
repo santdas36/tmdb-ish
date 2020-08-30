@@ -11,6 +11,7 @@ function BigList({ fetchId, title }) {
 	const [thisMovies, setThisMovies] = useState([]);
 
 	useEffect(() => {
+		console.log(requests.fetchId);
 		axios.get(requests.fetchId).then((response) => {
 			setThisMovies(response.data.results);
 		})
