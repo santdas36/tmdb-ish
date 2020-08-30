@@ -26,9 +26,9 @@ function BigList({ fetchId, title }) {
 				<div class="list__items list__items-big">
 					{ thisMovies?.slice(0, 15).map((movie) => 
 						(<div class="list__item">
-							<img src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} />
+							<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 							<div className="list__itemInfo">
-								<h5 className="list__itemTitle">{movie.title || movie.original_title}</h5>
+								<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}</h5>
 								<TextTruncate
 									line={2}
 									element="p"
@@ -36,7 +36,11 @@ function BigList({ fetchId, title }) {
 									truncateText="…"
 									text={movie.overview}
 								/>
-								{movie.vote_average && <Rating name="movie-rating" className="movieRating" value={movie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>}
+								{ movie.vote_average && 
+								<div className="app__featuredRating">
+									<Rating name="movie-rating" className="movieRating" value={movie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
+									<small className="app__featuredLikes">{movie.vote_average / 2}</small>
+								</div> }
 							</div>
 						</div>)
 					)}
