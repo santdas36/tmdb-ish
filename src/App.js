@@ -14,6 +14,7 @@ function App() {
   const [truncLine, setTruncLine] = useState(2);
   const [videoId, setVideoId] = useState('');
   const [movieId, setMovieId] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
 
 	const getMovieInfo = (movieInfo) => {
 		axios.get(fetchMovie(movieInfo)).then((response) => {
@@ -63,7 +64,7 @@ function App() {
 
   return (
     <div className="app">
-		<Header />
+		<Header setSearchResult={setSearchResult} />
 		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 		<List setMovieId={setMovieId} />
 		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>

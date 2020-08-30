@@ -37,7 +37,7 @@ width: 12rem;
 .app__searchIcon {
 margin-right: 0.375rem;
 }
-.app__search > input {
+.app__search input {
 background: transparent;
 color: #fff;
 border: none;
