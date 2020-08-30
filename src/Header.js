@@ -17,7 +17,7 @@ function Header({setSearchResult}) {
 	return(
 		<div className="app__header">
 			<ul className="app__nav">
-				<li className={(searchOpen || input) ? "app__search" : "app__search open"} onFocus={() => setSearchOpen(true)} onBlur={() => setSearchOpen(false)}>
+				<li className={(searchOpen || input) ? "app__search open" : "app__search"} onFocus={() => setSearchOpen(true)} onBlur={() => setSearchOpen(false)}>
 					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" />
 					<form>
 						<input type="search" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
