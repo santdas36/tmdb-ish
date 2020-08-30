@@ -3,6 +3,7 @@ import Header from "./Header";
 import FeaturedMovie from "./FeaturedMovie";
 import List from "./List";
 import BigList from "./BigList";
+import Results from "./Results";
 import "./App.css";
 import axios from './axios';
 import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api';
