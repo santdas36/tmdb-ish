@@ -27,7 +27,7 @@ function List() {
 			<div class="list__trending">
 				<h4>Popular Movies</h4>
 				<div class="list__items">
-					{ popularMovies?.slice(0, 6).map((movie) => 
+					{ popularMovies?.slice(0, 10).map((movie) => 
 						(<div class="list__item">
 							<img src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} />
 							<div className="list__itemInfo">
@@ -43,7 +43,6 @@ function List() {
 							</div>
 						</div>)
 					)}
-					<div class="list__item"></div>
 				</div>
 			</div>
 
