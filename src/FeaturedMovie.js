@@ -24,7 +24,7 @@ function FeaturedMovie ({title, overlayStyle, featuredMovie, videoId, setTruncLi
 			<Grow in={playing} mountOnEnter unmountOnExit>
 			<ModalVideo
 				channel='youtube'
-				isOpen={playing}
+				isOpen='true'
 				videoId={videoId}
 				onClose={() => setPlaying(false)}
 				/>
