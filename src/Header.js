@@ -7,21 +7,21 @@ import requests, {imageBase, fetchMovie, fetchTV} from './api';
 function Header({setSearchResult}) {
 	const [input, setInput] = useState('');
 	const inputEl = useRef(null);
-	const [searchOpen, setSearchOpen] = useState(false);
+	const searchEl = useRef(null);
 
 	const handleSearch = (e) => {
 		e.preventDefault();
 		setInput('');
-		setSearchOpen(false);
+		searchEl.current.classList.remove('open');
 	}
 
 	return(
 		<div className="app__header">
 			<ul className="app__nav">
-				<li className={`app__search ${searchOpen || input ? "open" : ""}`} onClick={() => {setSearchOpen(true); inputEl.current.focus();}}>
+				<li className="app__search" ref={searchEl} onClick={() => {searchEl.current.classList.add('open'); inputEl.current.focus();}}>
 					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" />
 					<form>
-						<input ref={inputEl} type="search" value={input} onBlur={() => setSearchOpen(false)} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
+						<input ref={inputEl} type="search" value={input} onBlur={() => {if(!input) searchEl.current.classList.remove('open')}} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
 						<button onClick={(e) => handleSearch(e)} type="submit"></button>
 					</form>
 				</li>
