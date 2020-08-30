@@ -6,6 +6,7 @@ import TextTruncate from "react-text-truncate";
 import "./BigList.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
+import {Link} from "react-router-dom";
 
 function BigList({ fetchId, title, setMovieId }) {
 	const [thisMovies, setThisMovies] = useState([]);
