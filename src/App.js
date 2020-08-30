@@ -16,17 +16,22 @@ function App() {
   const [playing, setPlaying] = useState(false);
   const [videoId, setVideoId] = useState('');
 
+
+	async function getMovieInfo(movieInfo) {
+		axios.get(fetchMovie(movieInfo)).then((response) => {
+			setFeaturedMovie(response.data);
+			let videos = response.data.videos.results;
+			let vidId = videos[videos.length - 1].key;
+			setVideoId(vidId);
+		}).catch((err) => console.log(err));	
+	}
+
 	useEffect(() => {
 		axios.get(requests.fetchTopRatedMovies).then((response) => {
 			let tempMov = response.data.results;
 			setTopRatedMovies(tempMov);
 			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
-			axios.get(fetchMovie(getFeatured)).then((response) => {
-				setFeaturedMovie(response.data);
-				let videos = response.data.videos.results;
-				let vidId = videos[videos.length - 1].key;
-				setVideoId(vidId);
-			}).catch((err) => console.log(err));
+			getMovieInfo(getFeatured);
 		})
 	}, []);
 
