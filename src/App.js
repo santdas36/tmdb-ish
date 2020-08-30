@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ModalVideo from "react-modal-video";
-import "./modalVideo.css";
 import Header from "./Header";
 import FeaturedMovie from "./FeaturedMovie";
 import List from "./List";
@@ -43,15 +41,8 @@ function App() {
 
   return (
     <div className="app">
-		{videoId &&
-		(<ModalVideo
-			channel='youtube'
-			isOpen={playing}
-			videoId={videoId}
-			onClose={() => setPlaying(false)}
-		/>)}
 		<Header />
-		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} featuredMovie={featuredMovie} setPlaying={setPlaying} />
+		{featuredMovie && <FeaturedMovie overlayStyle={overlayStyle} featuredMovie={featuredMovie} setPlaying={setPlaying} videoId={videoId} />
 		}
 		<List />
 		<BigList title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>

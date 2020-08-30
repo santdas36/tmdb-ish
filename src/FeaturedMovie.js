@@ -4,9 +4,11 @@ import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
 import Rating from "@material-ui/lab/Rating";
 import Button from "@material-ui/core/Button";
 import TextTruncate from "react-text-truncate";
+import ModalVideo from "react-modal-video";
+import "./modalVideo.css";
 import "./FeaturedMovie.css";
 
-function FeaturedMovie({overlayStyle, featuredMovie, setPlaying}) {
+function FeaturedMovie({overlayStyle, featuredMovie, setPlaying, videoId}) {
 	const [truncLine, setTruncLine] = useState(2);
 	const readMore = (e) => {
 		setTruncLine(0);
@@ -16,6 +18,13 @@ function FeaturedMovie({overlayStyle, featuredMovie, setPlaying}) {
 
 	return(
 		<div className="app__featured">
+			{videoId &&
+			<ModalVideo
+				channel='youtube'
+				isOpen={playing}
+				videoId={videoId}
+				onClose={() => setPlaying(false)}
+				/>}
 			<div className="app__overlay" style={overlayStyle}></div>
 			<p className="app__featuredInfo">Today's Featured Film</p>
 			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title}</h2>
