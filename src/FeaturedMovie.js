@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
+import Grow from '@material-ui/core/Grow';
 import Rating from "@material-ui/lab/Rating";
 import Button from "@material-ui/core/Button";
 import TextTruncate from "react-text-truncate";
@@ -20,12 +21,14 @@ function FeaturedMovie ({title, overlayStyle, featuredMovie, videoId, setTruncLi
 	return(
 		<div className="app__featured">
 			{videoId &&
+			<Grow in={playing} mountOnEnter unmountOnExit>
 			<ModalVideo
 				channel='youtube'
 				isOpen={playing}
 				videoId={videoId}
 				onClose={() => setPlaying(false)}
-				/>}
+				/>
+			</Grow>}
 			<div className="app__overlay" style={overlayStyle}></div>
 			<p className="app__featuredInfo">{title}</p>
 			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title || featuredMovie.name || featuredMovie.original_name}</h2>
