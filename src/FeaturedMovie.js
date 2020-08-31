@@ -40,7 +40,7 @@ function FeaturedMovie ({title, overlayStyle, featuredMovie, videoId, setTruncLi
 				truncateText="…" text={featuredMovie.overview}
 			/>
 			<div className="app__featuredRating">
-				<Rating name="movie-rating" value={(featuredMovie.vote_average / 2) || 0.1} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
+				<Rating name="movie-rating" value={featuredMovie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
 				<p className="app__featuredLikes">{featuredMovie.vote_average / 2}<small> ({featuredMovie.vote_count})</small></p>
 			</div>
 			<Button className="app__button" variant="contained" onClick={() => setPlaying(true)} startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
