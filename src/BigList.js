@@ -13,6 +13,7 @@ function BigList({ fetchId, title, setMovieId }) {
 	useEffect(() => {
 		axios.get(fetchId).then((response) => {
 			setThisMovies(response.data.results);
+			console.log(response.data.results);
 		})
 	}, [fetchId]);
 
