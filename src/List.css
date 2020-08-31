@@ -87,6 +87,13 @@ transition: margin-bottom 0.2s ease-out;
 .list__item:hover .list__itemTitle {
 margin-bottom: 0.5rem;
 }
+.list__itemYear {
+font-size: 0.85rem;
+margin-left: 0.5rem;
+font-family: "Work Sans", sans-serif;
+font-weight: 400;
+opacity: 0.75;
+}
 .list__itemOverview {
 height: 2.4rem;
 overflow: hidden;

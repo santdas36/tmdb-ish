@@ -24,6 +24,11 @@ function List({setMovieId}) {
 		setMovieId(movie);
 	}
 
+	const getReleaseYear = (date) => {
+		let year = new Date(date);
+		return year.getFullYear();
+	}
+
 	return (
 		<div className="list">
 
@@ -34,7 +39,7 @@ function List({setMovieId}) {
 						(<div class="list__item" onClick={() => handleClick(movie)}>
 							<img src={`${imageBase}${movie.backdrop_path || movie.poster_path}`} />
 							<div className="list__itemInfo">
-								<h5 className="list__itemTitle">{movie.title || movie.original_title}</h5>
+								<h5 className="list__itemTitle">{movie.title || movie.original_title}<span className="list__itemYear">({getReleaseYear(featuredMovie.release_date)})</span></h5>
 								<TextTruncate
 									line={2}
 									element="p"
