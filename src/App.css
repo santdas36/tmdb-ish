@@ -14,7 +14,7 @@ mix-blend-mode: overlay;
 pointer-events: none;
 }
 
-@media (max-width: 719px) {
+@media (max-width: 599px) {
 .app > div {
 display: none;
 }
@@ -27,7 +27,7 @@ top: 0;
 left: 0;
 padding: 2rem;
 text-align: center;
-font-weight: 800;
+font-weight: 500;
 background: linear-gradient(to top, #3A6979, #4ca1af);
 }
 }
