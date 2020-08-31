@@ -5,6 +5,7 @@ import List from "./List";
 import BigList from "./BigList";
 import Results from "./Results";
 import Loading from "./Loading";
+import Footer from "./Footer";
 import "./App.css";
 import axios from './axios';
 import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api';
@@ -97,6 +98,7 @@ function App() {
 		<List setLoading={setLoading} setMovieId={setMovieId} />
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
+		<Footer />
 
     </div>
   );

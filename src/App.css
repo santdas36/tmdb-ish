@@ -13,3 +13,19 @@ mix-blend-mode: overlay;
 -webkit-mask-image: radial-gradient(ellipse farthest-side at 75% 10%, black, transparent);
 pointer-events: none;
 }
+
+@media (max-width: 719px) {
+.app > div {
+display: none;
+}
+.app::before {
+content: "Mobile devices not supported, yet.";
+position: absolute;
+width: 100%;
+height: 100%;
+padding: 2rem;
+text-align: center;
+font-weight: 800;
+background: linear-gradient(to top, #3A6979, #4ca1af);
+}
+}

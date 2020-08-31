@@ -1,0 +1,10 @@
+.footer {
+display: grid;
+place-items: center;
+padding: 1rem;
+background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+}
+.footer img {
+height: 3rem;
+margin: 2rem 0;
+}
