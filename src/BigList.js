@@ -17,6 +17,12 @@ function BigList({ fetchId, title, setMovieId, setLoading }) {
     })
   }, [fetchId]);
 
+  const scrollHorizontally = (e) => {
+    let delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+    e.target.scrollLeft -= (delta * 40);
+    e.preventDefault();
+  }
+
   const handleClick = (movie) => {
     setMovieId(movie);
     setLoading(true);
@@ -32,7 +38,7 @@ function BigList({ fetchId, title, setMovieId, setLoading }) {
 
 			<div class="list__trending list__big">
 				<h4>{title}</h4>
-				<div class="list__items list__items-big">
+				<div onWheel={(e) => scrollHorizontally(e)} class="list__items list__items-big">
 					{ thisMovies?.slice(0, 10).map((movie) =>
 						(<div class="list__item" onClick={() => handleClick(movie)}>
 							<img loading="lazy" src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
