@@ -1,11 +1,11 @@
 import React from "react";
-import HashLoader from "react-spinners/HashLoader";
+import GridLoader from "react-spinners/GridLoader";
 import "./Loading.css";
 
 function Loading() {
 	return (
 		<div className="loading">
-			<HashLoader size={75} color={"#4ca1af"} />
+			<GridLoader size={20} margin={5} color={"#4ca1af"} />
 		</div>
 	)
 }
