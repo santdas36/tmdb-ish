@@ -1,37 +1,37 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
 import Grow from '@material-ui/core/Grow';
 import Rating from "@material-ui/lab/Rating";
 import Button from "@material-ui/core/Button";
-import TextTruncate from "react-text-truncate";
+import TextTruncate from "react-text-truncate";
 import ModalVideo from "react-modal-video";
 import "./modalVideo.css";
 import "./FeaturedMovie.css";
 
-function FeaturedMovie ({title, overlayStyle, featuredMovie, videoId, setTruncLine, truncLine}) {
-	const [playing, setPlaying] = useState(false);
+function FeaturedMovie({ title, overlayStyle, featuredMovie, videoId, setTruncLine, truncLine }) {
+  const [playing, setPlaying] = useState(false);
 
-	const readMore = (e) => {
-		setTruncLine(0);
-		e.preventDefault();
-		e.target.style.display = 'none';
-	}
+  const readMore = (e) => {
+    setTruncLine(0);
+    e.preventDefault();
+    e.target.style.display = 'none';
+  }
 
-	const getReleaseYear = (date) => {
-		let year = new Date(date);
-		return year.getFullYear();
-	}
+  const getReleaseYear = (date) => {
+    let year = new Date(date);
+    return year.getFullYear();
+  }
 
-	return(
-		<div className="app__featured">
+  return (
+    <div className="app__featured">
 			{videoId &&
 			<Grow in={playing} mountOnEnter unmountOnExit>
 			<ModalVideo
 				channel='youtube'
 				isOpen='true'
 				videoId={videoId}
-				onClose={() => setPlaying(false)}
+				onClose={() => setPlaying(false)}
 				/>
 			</Grow>}
 			<div className="app__overlay" style={overlayStyle}></div>
@@ -50,7 +50,7 @@ function FeaturedMovie ({title, overlayStyle, featuredMovie, videoId, setTruncLi
 			</div>
 			<Button className="app__button" variant="contained" onClick={() => setPlaying(true)} startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>
-	)
+  )
 }
 
 export default FeaturedMovie;

@@ -1,10 +1,12 @@
 .list.biglist {
-background: #2c3e50;
+  background: #2c3e50;
 }
+
 .list__trending.list__big {
-flex: 0 0 100%;
+  flex: 0 0 100%;
 }
-.list__items-big > .list__item {
-flex: 0 0 200px;
-height: 300px;
+
+.list__items-big>.list__item {
+  flex: 0 0 200px;
+  height: 300px;
 }

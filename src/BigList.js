@@ -5,30 +5,30 @@ import Rating from "@material-ui/lab/Rating";
 import TextTruncate from "react-text-truncate";
 import "./BigList.css";
 import axios from './axios';
-import requests, {imageBase} from './api';
+import requests, { imageBase } from './api';
 
 function BigList({ fetchId, title, setMovieId, setLoading }) {
-	const [thisMovies, setThisMovies] = useState([]);
+  const [thisMovies, setThisMovies] = useState([]);
 
-	useEffect(() => {
-		axios.get(fetchId).then((response) => {
-			setThisMovies(response.data.results);
-			console.log(response.data.results);
-		})
-	}, [fetchId]);
+  useEffect(() => {
+    axios.get(fetchId).then((response) => {
+      setThisMovies(response.data.results);
+      console.log(response.data.results);
+    })
+  }, [fetchId]);
 
-	const handleClick = (movie) => {
-		setMovieId(movie);
-		setLoading(true);
-	}
+  const handleClick = (movie) => {
+    setMovieId(movie);
+    setLoading(true);
+  }
 
-	const getReleaseYear = (date) => {
-		let year = new Date(date);
-		return year.getFullYear();
-	}
+  const getReleaseYear = (date) => {
+    let year = new Date(date);
+    return year.getFullYear();
+  }
 
-	return (
-		<div className="list biglist">
+  return (
+    <div className="list biglist">
 
 			<div class="list__trending list__big">
 				<h4>{title}</h4>
@@ -56,7 +56,7 @@ function BigList({ fetchId, title, setMovieId, setLoading }) {
 			</div>
 
 		</div>
-	);
+  );
 }
 
 export default BigList;

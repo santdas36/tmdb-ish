@@ -4,22 +4,22 @@ import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import Rating from "@material-ui/lab/Rating";
 import TextTruncate from "react-text-truncate";
 import "./Results.css";
-import {imageBase} from './api';
+import { imageBase } from './api';
 
 function Results({ searchResult, setMovieId, setLoading }) {
 
-	const handleClick = (movie) => {
-		setMovieId(movie);
-		setLoading(true);
-	}
+  const handleClick = (movie) => {
+    setMovieId(movie);
+    setLoading(true);
+  }
 
-	const getReleaseYear = (date) => {
-		let year = new Date(date);
-		return year.getFullYear();
-	}
+  const getReleaseYear = (date) => {
+    let year = new Date(date);
+    return year.getFullYear();
+  }
 
-	return (
-		<div className="results">
+  return (
+    <div className="results">
 			<h4>Search Results</h4>
 			<div class="results__list">
 				{ searchResult?.map((movie) => movie.media_type !== 'person' &&
@@ -44,7 +44,7 @@ function Results({ searchResult, setMovieId, setLoading }) {
 				)}
 			</div>
 		</div>
-	);
+  );
 }
 
 export default Results;

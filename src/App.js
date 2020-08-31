@@ -8,7 +8,7 @@ import Loading from "./Loading";
 import Footer from "./Footer";
 import "./App.css";
 import axios from './axios';
-import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api';
+import requests, { imageBase, fetchMovie, fetchTV, fetchSearchString } from './api';
 
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -21,69 +21,69 @@ function App() {
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(true);
 
-	const getMovieInfo = (movieInfo) => {
-		axios.get(fetchMovie(movieInfo)).then((response) => {
-			setFeaturedMovie(response.data);
-			let videos = response.data.videos.results;
-			let vidId = videos[0].key;
-			setVideoId(vidId);
-			setLoading(false);
-		}).catch((err) => console.log(err));	
-	}
-	const getTVInfo = (movieInfo) => {
-		axios.get(fetchTV(movieInfo)).then((response) => {
-			setFeaturedMovie(response.data);
-			let videos = response.data.videos.results;
-			let vidId = videos[0].key;
-			setVideoId(vidId);
-			setLoading(false);
-		}).catch((err) => console.log(err));	
-	}
+  const getMovieInfo = (movieInfo) => {
+    axios.get(fetchMovie(movieInfo)).then((response) => {
+      setFeaturedMovie(response.data);
+      let videos = response.data.videos.results;
+      let vidId = videos[0].key;
+      setVideoId(vidId);
+      setLoading(false);
+    }).catch((err) => console.log(err));
+  }
+  const getTVInfo = (movieInfo) => {
+    axios.get(fetchTV(movieInfo)).then((response) => {
+      setFeaturedMovie(response.data);
+      let videos = response.data.videos.results;
+      let vidId = videos[0].key;
+      setVideoId(vidId);
+      setLoading(false);
+    }).catch((err) => console.log(err));
+  }
 
-	useEffect(() => {
-		axios.get(requests.fetchTopRatedMovies).then((response) => {
-			let tempMov = response.data.results;
-			setTopRatedMovies(tempMov);
-			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
-			getMovieInfo(getFeatured);
-			setFeatTitle("Today's Featured Film");
-		});
-	}, []);
+  useEffect(() => {
+    axios.get(requests.fetchTopRatedMovies).then((response) => {
+      let tempMov = response.data.results;
+      setTopRatedMovies(tempMov);
+      let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
+      getMovieInfo(getFeatured);
+      setFeatTitle("Today's Featured Film");
+    });
+  }, []);
 
-	useEffect(() => {
-		if(movieId.media_type === 'movie') {
-			getMovieInfo(movieId.id);
-			setTruncLine(2);
-			setFeatTitle('Movie');
-		}
-		if(movieId.media_type === 'tv') {
-			getTVInfo(movieId.id);
-			setTruncLine(2);
-			setFeatTitle('Series');
-		}
-		if(!movieId.media_type) {
-			getMovieInfo(movieId.id);
-			setTruncLine(2);
-			setFeatTitle('Movie');
-		}
-		setTimeout(() => {
-			window.scrollTo(0, 0);
-			setShowResults(false);
-			setLoading(false);
-		}, 100);
-	}, [movieId]);
+  useEffect(() => {
+    if (movieId.media_type === 'movie') {
+      getMovieInfo(movieId.id);
+      setTruncLine(2);
+      setFeatTitle('Movie');
+    }
+    if (movieId.media_type === 'tv') {
+      getTVInfo(movieId.id);
+      setTruncLine(2);
+      setFeatTitle('Series');
+    }
+    if (!movieId.media_type) {
+      getMovieInfo(movieId.id);
+      setTruncLine(2);
+      setFeatTitle('Movie');
+    }
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      setShowResults(false);
+      setLoading(false);
+    }, 100);
+  }, [movieId]);
 
-	useEffect(() => {
-		if (searchResult[0]?.id) {
-			setShowResults(true);
-			setLoading(false);
-		}
-	}, [searchResult]);
+  useEffect(() => {
+    if (searchResult[0]?.id) {
+      setShowResults(true);
+      setLoading(false);
+    }
+  }, [searchResult]);
 
   var overlayStyle = {
-	backgroundImage: `url(${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
-	backgroundSize: 'cover',
-	backgroundPosition: 'top right',
+    backgroundImage: `url(${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'top right',
   }
 
   return (

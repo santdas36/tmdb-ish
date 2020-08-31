@@ -5,33 +5,33 @@ import Rating from "@material-ui/lab/Rating";
 import TextTruncate from "react-text-truncate";
 import "./List.css";
 import axios from './axios';
-import requests, {imageBase} from './api';
+import requests, { imageBase } from './api';
 
-function List({setMovieId, setLoading}) {
-	const [genres, setGenres] = useState([]);
-	const [popularMovies, setPopularMovies] = useState([]);
+function List({ setMovieId, setLoading }) {
+  const [genres, setGenres] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
 
-	useEffect(() => {
-		axios.get(requests.fetchGenres).then((response) => {
-			setGenres(response.data.genres);
-		});
-		axios.get(requests.fetchPopularMovies).then((response) => {
-			setPopularMovies(response.data.results);
-		})
-	}, []);
+  useEffect(() => {
+    axios.get(requests.fetchGenres).then((response) => {
+      setGenres(response.data.genres);
+    });
+    axios.get(requests.fetchPopularMovies).then((response) => {
+      setPopularMovies(response.data.results);
+    })
+  }, []);
 
-	const handleClick = (movie) => {
-		setMovieId(movie);
-		setLoading(true);
-	}
+  const handleClick = (movie) => {
+    setMovieId(movie);
+    setLoading(true);
+  }
 
-	const getReleaseYear = (date) => {
-		let year = new Date(date);
-		return year.getFullYear();
-	}
+  const getReleaseYear = (date) => {
+    let year = new Date(date);
+    return year.getFullYear();
+  }
 
-	return (
-		<div className="list">
+  return (
+    <div className="list">
 
 			<div class="list__trending">
 				<h4>Popular Movies</h4>
@@ -68,7 +68,7 @@ function List({setMovieId, setLoading}) {
 			</div>
 
 		</div>
-	);
+  );
 }
 
 export default List;

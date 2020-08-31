@@ -1,104 +1,120 @@
 .results {
-padding: 1.5rem 3rem;
-background: linear-gradient(to top, #3a6979, #4ca1af);
+  padding: 1.5rem 3rem;
+  background: linear-gradient(to top, #3a6979, #4ca1af);
 }
+
 .results h4 {
-margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
+
 .results__list {
-display: flex;
-flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
 }
-.results__list > .list__item {
-width: calc((100% / 3) - 2rem);
-height: 0;
-padding-bottom: calc(((100% / 3) - 2rem) * 1.5);
-background: #fff;
-border-radius: 1rem;
-overflow: hidden;
-position: relative;
-box-shadow: rgba(0,0,0,0.2) 0 2px 4px -1px, rgba(0,0,0,0.14) 0 4px 5px 0, rgba(0,0,0,0.12) 0 1px 10px 0;
-cursor: pointer;
-margin: 1rem;
+
+.results__list>.list__item {
+  width: calc((100% / 3) - 2rem);
+  height: 0;
+  padding-bottom: calc(((100% / 3) - 2rem) * 1.5);
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px -1px, rgba(0, 0, 0, 0.14) 0 4px 5px 0, rgba(0, 0, 0, 0.12) 0 1px 10px 0;
+  cursor: pointer;
+  margin: 1rem;
 }
-.list__item > img {
-width: 100%;
-height: 100%;
-position: absolute;
-top: 0;
-left: 0;
-object-fit: cover;
-transform: scale(1.1);
-transition: all 0.2s ease-out;
+
+.list__item>img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: all 0.2s ease-out;
 }
-.list__item:hover > img {
-transform: scale(1);
+
+.list__item:hover>img {
+  transform: scale(1);
 }
+
 .list__item::before {
-position: absolute;
-content: '';
-width: 100%;
-height: 100%;
-background-image: radial-gradient(ellipse farthest-side at 0 100%, #2c3e50, transparent);
-background-size: 150% 150%;
-background-position: 0 0;
-top: 0;
-left: 0;
-transition: all 0.2s;
-z-index: 1;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(ellipse farthest-side at 0 100%, #2c3e50, transparent);
+  background-size: 150% 150%;
+  background-position: 0 0;
+  top: 0;
+  left: 0;
+  transition: all 0.2s;
+  z-index: 1;
 }
+
 .list__item:hover::before {
-background-position: 0% 100%;
+  background-position: 0% 100%;
 }
+
 .list__itemInfo {
-position: absolute;
-left: 0;
-bottom: -6rem;
-padding: 1rem;
-z-index: 9;
-transition: bottom 0.2s ease-in;
+  position: absolute;
+  left: 0;
+  bottom: -6rem;
+  padding: 1rem;
+  z-index: 9;
+  transition: bottom 0.2s ease-in;
 }
+
 .list__itemType {
-position: absolute;
-left: 1rem;
-top: 1rem;
-padding: 0.25rem 0.5rem 0.2rem 0.5rem;
-background: #fff;
-box-shadow: 0 2px 4px rgba(0,0,0,0.25);
-color: #2c3e50;
-font-size: 0.75rem;
-text-transform: uppercase;
-border-radius: 99px;
-margin: 0;
-z-index: 9;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  padding: 0.25rem 0.5rem 0.2rem 0.5rem;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  color: #2c3e50;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  border-radius: 99px;
+  margin: 0;
+  z-index: 9;
 }
+
 .list__item:hover .list__itemInfo {
-bottom: 0;
+  bottom: 0;
 }
+
 .list__itemTitle {
-white-space: nowrap;
-text-overflow: ellipsis;
-overflow: hidden;
-width: 90%;
-margin-bottom: 1.25rem;
-transition: margin-bottom 0.2s ease-out;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 90%;
+  margin-bottom: 1.25rem;
+  transition: margin-bottom 0.2s ease-out;
 }
+
 .list__item:hover .list__itemTitle {
-margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
+
 .list__itemOverview {
-height: 2.4rem;
-overflow: hidden;
+  height: 2.4rem;
+  overflow: hidden;
 }
+
 .list__item .movieRating {
-transform-origin: 0 0;
-transform: scale(0.9);
-margin-left: -4px;
+  transform-origin: 0 0;
+  transform: scale(0.9);
+  margin-left: -4px;
 }
+
 .list__rating {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
+
 .list__likes {
-margin: 0 0 8px -8px;
+  margin: 0 0 8px -8px;
 }
