@@ -4,6 +4,7 @@ import FeaturedMovie from "./FeaturedMovie";
 import List from "./List";
 import BigList from "./BigList";
 import Results from "./Results";
+import Loading from "./Loading";
 import "./App.css";
 import axios from './axios';
 import requests, {imageBase, fetchMovie, fetchTV, fetchSearchString} from './api';
@@ -25,6 +26,7 @@ function App() {
 			let videos = response.data.videos.results;
 			let vidId = videos[0].key;
 			setVideoId(vidId);
+			setLoading(false);
 		}).catch((err) => console.log(err));	
 	}
 	const getTVInfo = (movieInfo) => {
@@ -33,6 +35,7 @@ function App() {
 			let videos = response.data.videos.results;
 			let vidId = videos[0].key;
 			setVideoId(vidId);
+			setLoading(false);
 		}).catch((err) => console.log(err));	
 	}
 
@@ -43,7 +46,6 @@ function App() {
 			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
 			getMovieInfo(getFeatured);
 			setFeatTitle("Today's Featured Film");
-			setLoading(false);
 		});
 	}, []);
 
@@ -66,7 +68,6 @@ function App() {
 		setTimeout(() => {
 			window.scrollTo(0, 0);
 			setShowResults(false);
-			setLoading(false);
 		}, 100);
 	}, [movieId]);
 
@@ -85,7 +86,7 @@ function App() {
 
   return (
     <div className="app">
-		{loading && <h1>Loading...</h1>}
+		{loading && <Loading loading={loading} />}
 		<Header setLoading={setLoading} setSearchResult={setSearchResult} />
 
 		{showResults ?
