@@ -7,7 +7,7 @@ import "./BigList.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
 
-function BigList({ fetchId, title, setMovieId }) {
+function BigList({ fetchId, title, setMovieId, setLoading }) {
 	const [thisMovies, setThisMovies] = useState([]);
 
 	useEffect(() => {
@@ -19,6 +19,7 @@ function BigList({ fetchId, title, setMovieId }) {
 
 	const handleClick = (movie) => {
 		setMovieId(movie);
+		setLoading(true);
 	}
 
 	const getReleaseYear = (date) => {

@@ -17,6 +17,7 @@ function App() {
   const [movieId, setMovieId] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const [loading, setLoading] = useState(true);
 
 	const getMovieInfo = (movieInfo) => {
 		axios.get(fetchMovie(movieInfo)).then((response) => {
@@ -42,6 +43,7 @@ function App() {
 			let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
 			getMovieInfo(getFeatured);
 			setFeatTitle("Today's Featured Film");
+			setLoading(false);
 		});
 	}, []);
 
@@ -64,12 +66,14 @@ function App() {
 		setTimeout(() => {
 			window.scrollTo(0, 0);
 			setShowResults(false);
+			setLoading(false);
 		}, 100);
 	}, [movieId]);
 
 	useEffect(() => {
 		if (searchResult[0]?.id) {
 			setShowResults(true);
+			setLoading(false);
 		}
 	}, [searchResult]);
 
@@ -81,16 +85,16 @@ function App() {
 
   return (
     <div className="app">
-
-		<Header setSearchResult={setSearchResult} />
+		{loading && <h1>Loading...</h1>}
+		<Header setLoading={setLoading} setSearchResult={setSearchResult} />
 
 		{showResults ?
-		<Results searchResult={searchResult} setMovieId={setMovieId} /> : 
+		<Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> : 
 		<FeaturedMovie key={featuredMovie.id} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
-		<List setMovieId={setMovieId} />
-		<BigList setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
-		<BigList setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
+		<List setLoading={setLoading} setMovieId={setMovieId} />
+		<BigList setLoading={setLoading} setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
+		<BigList setLoading={setLoading} setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
 
     </div>
   );

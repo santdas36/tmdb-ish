@@ -7,7 +7,7 @@ import "./List.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
 
-function List({setMovieId}) {
+function List({setMovieId, setLoading}) {
 	const [genres, setGenres] = useState([]);
 	const [popularMovies, setPopularMovies] = useState([]);
 
@@ -22,6 +22,7 @@ function List({setMovieId}) {
 
 	const handleClick = (movie) => {
 		setMovieId(movie);
+		setLoading(true);
 	}
 
 	const getReleaseYear = (date) => {

@@ -6,10 +6,11 @@ import TextTruncate from "react-text-truncate";
 import "./Results.css";
 import {imageBase} from './api';
 
-function Results({ searchResult, setMovieId }) {
+function Results({ searchResult, setMovieId, setLoading }) {
 
 	const handleClick = (movie) => {
 		setMovieId(movie);
+		setLoading(true);
 	}
 
 	const getReleaseYear = (date) => {
