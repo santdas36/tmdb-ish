@@ -68,6 +68,7 @@ function App() {
 		setTimeout(() => {
 			window.scrollTo(0, 0);
 			setShowResults(false);
+			setLoading(false);
 		}, 100);
 	}, [movieId]);
 
