@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import tmdbIcon from "./tmdb.svg";
+import tmdbIcon from "./assets/tmdb.svg";
 
 function Footer() {
 	return (
