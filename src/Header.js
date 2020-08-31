@@ -12,7 +12,12 @@ function Header({setSearchResult, setLoading}) {
 
 	const searchQuery = (query) => {
 		axios.get(fetchSearchString(query)).then((response) => {
-			setSearchResult(response.data.results);
+			if (response.data.results.length < 1) {
+				alert("No Results Found");
+				setLoading(false);
+			} else {
+				setSearchResult(response.data.results);
+			}
 		}).catch((err) => console.log(err));	
 	}
 
