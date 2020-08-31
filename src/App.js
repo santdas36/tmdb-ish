@@ -86,7 +86,7 @@ function App() {
 
   return (
     <div className="app">
-		{loading && <Loading loading={loading} />}
+		{loading && <Loading />}
 		<Header setLoading={setLoading} setSearchResult={setSearchResult} />
 
 		{showResults ?

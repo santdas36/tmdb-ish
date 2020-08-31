@@ -2,10 +2,10 @@ import React from "react";
 import HashLoader from "react-spinners/HashLoader";
 import "./Loading.css";
 
-function Loading({loading}) {
+function Loading() {
 	return (
 		<div className="loading">
-			<HashLoader size={150} color={"#2c3e50"} loading={loading} />
+			<HashLoader size={75} color={"#4ca1af"} />
 		</div>
 	)
 }
