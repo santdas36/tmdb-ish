@@ -12,7 +12,7 @@ function Header({setSearchResult, setLoading}) {
 
 	const searchQuery = (query) => {
 		axios.get(fetchSearchString(query)).then((response) => {
-			if (response.data.results.length < 1) {
+			if (response.data.total_results < 1) {
 				alert("No Results Found");
 				setLoading(false);
 			} else {
