@@ -16,7 +16,7 @@ function Results({ searchResult, setMovieId }) {
 		<div className="results">
 			<h4>Search Results</h4>
 			<div class="results__list">
-				{ searchResult?.map((movie) => 
+				{ searchResult?.map((movie) => movie.media_type !== 'person' &&
 					(<div class="list__item" onClick={() => handleClick(movie)}>
 						<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 						<h5 className="list__itemType">{movie.media_type}</h5>
