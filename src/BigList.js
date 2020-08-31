@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import Rating from "@material-ui/lab/Rating";
 import TextTruncate from "react-text-truncate";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import "./BigList.css";
 import axios from './axios';
 import requests, {imageBase} from './api';
@@ -35,7 +36,7 @@ function BigList({ fetchId, title, setMovieId, setLoading }) {
 				<div class="list__items list__items-big">
 					{ thisMovies?.slice(0, 10).map((movie) =>
 						(<div class="list__item" onClick={() => handleClick(movie)}>
-							<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
+							<LazyLoadImage effect="opacity" threshold="0" src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}<span className="list__itemYear">({getReleaseYear(movie.release_date || movie.first_air_date)})</span></h5>
 								<TextTruncate
