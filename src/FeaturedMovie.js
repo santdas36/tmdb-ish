@@ -18,6 +18,11 @@ function FeaturedMovie ({title, overlayStyle, featuredMovie, videoId, setTruncLi
 		e.target.style.display = 'none';
 	}
 
+	const getReleaseYear = () => {
+		let date = new Date(featuredMovie.release_date);
+		return date.getFullYear();
+	}
+
 	return(
 		<div className="app__featured">
 			{videoId &&
@@ -31,7 +36,7 @@ function FeaturedMovie ({title, overlayStyle, featuredMovie, videoId, setTruncLi
 			</Grow>}
 			<div className="app__overlay" style={overlayStyle}></div>
 			<p className="app__featuredInfo">{title}</p>
-			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title || featuredMovie.name || featuredMovie.original_name}</h2>
+			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title || featuredMovie.name || featuredMovie.original_name}<span className="app__featuredYear">{getReleaseYear}</span></h2>
 			<TextTruncate
 				line={truncLine}
 				element="p"

@@ -11,6 +11,13 @@ text-transform: uppercase;
 .app__featuredTitle {
 font-weight: 900;
 }
+.app__featuredYear {
+font-size: 1.5rem;
+margin-left: 1rem;
+font-family: "Work Sans", sans-serif;
+font-weight: 400;
+opacity: 0.5;
+}
 .app__featuredDesc {
 width: 50%;
 }
