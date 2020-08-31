@@ -24,7 +24,7 @@ function Results({ searchResult, setMovieId, setLoading }) {
 			<div class="results__list">
 				{ searchResult?.map((movie) => movie.media_type !== 'person' &&
 					(<div class="list__item" onClick={() => handleClick(movie)}>
-						<img loading="lazy" src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
+						<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 						<h5 className="list__itemType">{movie.media_type}</h5>
 						<div className="list__itemInfo">
 							<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}<span className="list__itemYear">({getReleaseYear(movie.release_date || movie.first_air_date)})</span></h5>
