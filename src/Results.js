@@ -26,7 +26,7 @@ function Results({ searchResult, setMovieId }) {
 						<img src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 						<h5 className="list__itemType">{movie.media_type}</h5>
 						<div className="list__itemInfo">
-							<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}<span className="list__itemYear">({getReleaseYear(featuredMovie.release_date)})</span></h5>
+							<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}<span className="list__itemYear">({getReleaseYear(movie.release_date)})</span></h5>
 							<TextTruncate
 								line={2}
 								element="p"
