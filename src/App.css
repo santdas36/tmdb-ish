@@ -1,36 +1,23 @@
 .app {
-  position: relative;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
+	position: relative;
+	width: 100%;
+	max-width: 1280px;
+	margin: 0 auto;
 }
 
 .app__overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 75%;
-  height: 30rem;
-  mix-blend-mode: overlay;
-  -webkit-mask-image: radial-gradient(ellipse farthest-side at 75% 10%, black, transparent);
-  pointer-events: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 75%;
+	height: 30rem;
+	mix-blend-mode: overlay;
+	-webkit-mask-image: radial-gradient(ellipse farthest-side at 75% 10%, black, transparent);
+	pointer-events: none;
 }
 
-@media (max-width: 599px) {
-  .app>div {
-    display: none;
-  }
-
-  .app::before {
-    content: "Mobile devices not supported, yet.";
-    position: absolute;
-    width: 100%;
-    height: 100vw;
-    top: 0;
-    left: 0;
-    padding: 2rem;
-    text-align: center;
-    font-weight: 500;
-    background: linear-gradient(to top, #3A6979, #4ca1af);
-  }
+@media (max-width: 550px) {
+	.app__overlay {
+		width: 85%;
+	}
 }

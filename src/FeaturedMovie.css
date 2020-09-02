@@ -1,62 +1,72 @@
 .app__featured {
-  padding: 7rem 3rem 3rem;
-  width: 100%;
-  background: linear-gradient(to top, #3a6979, #4ca1af);
+	padding: 7rem 3rem 3rem;
+	width: 100%;
+	background: linear-gradient(to top, #3a6979, #4ca1af);
 }
 
 .app__featuredInfo {
-  margin: 0;
-  font-weight: 500;
-  text-transform: uppercase;
+	margin: 0;
+	font-weight: 500;
+	text-transform: uppercase;
 }
 
 .app__featuredTitle {
-  font-weight: 900;
+	font-weight: 900;
 }
 
 .app__featuredYear {
-  font-size: 1.5rem;
-  margin-left: 0.75rem;
-  font-family: "Work Sans", sans-serif;
-  font-weight: 400;
-  opacity: 0.5;
+	font-size: 1.5rem;
+	margin-left: 0.75rem;
+	font-family: "Work Sans", sans-serif;
+	font-weight: 400;
+	opacity: 0.5;
 }
 
 .app__featuredDesc {
-  width: 50%;
+	width: 50%;
 }
 
 .app__featuredDesc a {
-  opacity: 0.5;
-  transition: opacity 0.1s ease;
+	opacity: 0.5;
+	transition: opacity 0.1s ease;
 }
 
 .app__featuredDesc a:hover {
-  opacity: 0.95;
+	opacity: 0.95;
 }
 
 .app__featuredRating {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
 }
 
 .MuiRating-iconEmpty {
-  color: rgba(255, 255, 255, 0.5) !important;
+	color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .app__featuredLikes {
-  margin: 0 0 8px 0.5rem;
+	margin: 0 0 8px 0.5rem;
 }
 
 .app__button {
-  border-radius: 99px !important;
-  color: #3a6979 !important;
-  font-weight: 500 !important;
-  font-family: "Work Sans", sans-serif !important;
-  background-color: rgb(255, 255, 255) !important;
+	border-radius: 99px !important;
+	color: #3a6979 !important;
+	font-weight: 500 !important;
+	font-family: "Work Sans", sans-serif !important;
+	background-color: rgb(255, 255, 255) !important;
 }
 
 .app__button:hover {
-  background-color: rgb(215, 215, 215) !important;
+	background-color: rgb(215, 215, 215) !important;
+}
+
+@media (max-width: 550px) {
+	.app__featured {
+		padding: 7rem 1rem 3rem 1rem;
+	}
+
+	.app__featuredDesc {
+		width: 90%;
+	}
 }
