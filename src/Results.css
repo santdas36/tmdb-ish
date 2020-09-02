@@ -25,13 +25,25 @@
 	margin: 1rem;
 }
 
+
+.results__list > .list__item img {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	object-fit: cover;
+}
+
+
 @media (max-width: 550px) {
 	.results {
-		padding: 2rem 1rem;
+		padding: 2rem 1.5rem;
 	}
 
 	.results__list > .list__item {
-		width: calc((100% / 3) - 1rem);
+		width: calc((100% / 2) - 1rem);
 		margin: 0.5rem;
+		padding-bottom: calc(((100% / 2) - 1rem) * 1.5);
 	}
 }

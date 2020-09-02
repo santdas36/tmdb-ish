@@ -10,3 +10,10 @@
   height: 3rem;
   margin: 2rem 0;
 }
+
+@media (max-width: 550px) {
+	.footer {
+		padding: 0;
+		padding-top: 3rem;
+	}
+}
