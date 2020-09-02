@@ -11,6 +11,11 @@
   margin: 2rem 0;
 }
 
+.footer p {
+	white-space: nowrap;
+	width: 100%;
+}
+
 @media (max-width: 550px) {
 	.footer {
 		padding: 0;
