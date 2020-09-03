@@ -19,6 +19,6 @@
 @media (max-width: 550px) {
 	.app__overlay {
 		width: 85%;
-		background-position: 75% 0% !important;
+		background-position: 50% 0% !important;
 	}
 }

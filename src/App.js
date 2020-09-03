@@ -28,10 +28,10 @@ function App() {
 	 let releaseDates = response.data.release_dates.results;
 	 for (let i = 0; i < releaseDates.length; i++) {
 		if (releaseDates[i].iso_3166_1 === 'US') {
-			setFeaturedCertification(releaseDates[i].release_dates.certification);
+			setFeaturedCertification(releaseDates[i].release_date.certification);
 			break;
 		}
-	 }
+	 };
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
       setVideoId(vidId);
@@ -47,7 +47,7 @@ function App() {
 			setFeaturedCertification(contentRating[i].rating);
 			break;
 		}
-	 }
+	 };
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
       setVideoId(vidId);

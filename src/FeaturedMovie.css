@@ -14,6 +14,13 @@
 	font-weight: 900;
 }
 
+.app__featuredCert {
+	padding: 0.25rem 0.5rem;
+	background: rgba(255,255,255,0.1);
+	border: 1px solid white;
+	border-radius: 5px;
+}
+
 .app__featuredYear {
 	font-size: 1.5rem;
 	margin-left: 0.75rem;
