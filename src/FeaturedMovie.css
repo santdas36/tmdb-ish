@@ -104,7 +104,7 @@
 
 	.app__featuredGenres,
 	.app__seriesSeasons {
-		font-size: 0.9rem;
+		font-size: 14px !important;
 	}
 
 	.app__featuredCert {
