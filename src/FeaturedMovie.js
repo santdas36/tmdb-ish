@@ -37,7 +37,7 @@ function FeaturedMovie({ title, overlayStyle, featuredMovie, featuredCertificati
 			<div className="app__overlay" style={overlayStyle}></div>
 			<p className="app__featuredInfo">{title}</p>
 			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title || featuredMovie.name || featuredMovie.original_name}<span className="app__featuredYear">({getReleaseYear(featuredMovie.release_date || featuredMovie.first_air_date)})</span></h2>
-			<p className="app__featuredCert">{featuredCertification}</p>
+			<p><span className="app__featuredCert">{featuredCertification}</span></p>
 			<TextTruncate
 				line={truncLine}
 				element="p"
