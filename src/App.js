@@ -22,7 +22,7 @@ function App() {
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const getMovieInfo = (movieInfo) => {
+  const getMovieInfo = async (movieInfo) => {
     axios.get(fetchMovie(movieInfo)).then((response) => {
       setFeaturedMovie(response.data);
 	 let releaseDates = response.data.release_dates.results;
@@ -35,10 +35,10 @@ function App() {
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
       setVideoId(vidId);
-      setLoading(false);
+	 setLoading(false);
     }).catch((err) => console.log(err));
   }
-  const getTVInfo = (movieInfo) => {
+  const getTVInfo = async (movieInfo) => {
     axios.get(fetchTV(movieInfo)).then((response) => {
       setFeaturedMovie(response.data);
 	 let contentRating = response.data.content_ratings.results;
@@ -51,18 +51,23 @@ function App() {
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
       setVideoId(vidId);
-      setLoading(false);
+	 setLoading(false);
     }).catch((err) => console.log(err));
   }
 
   useEffect(() => {
-    axios.get(requests.fetchTopRatedMovies).then((response) => {
-      let tempMov = response.data.results;
-      setTopRatedMovies(tempMov);
-      let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
-      getMovieInfo(getFeatured);
-      setFeatTitle("Today's Featured Film");
-    });
+    const initRun = async () => {
+	  axios.get(requests.fetchTopRatedMovies).then((response) => {
+      	let tempMov = response.data.results;
+      	setTopRatedMovies(tempMov);
+      	let getFeatured = tempMov[Math.floor(Math.random() * tempMov.length)].id;
+      	getMovieInfo(getFeatured);
+      	setFeatTitle("Today's Featured Film");
+	 	setLoading(false);
+       })
+	 }
+
+	initRun();
   }, []);
 
   useEffect(() => {
@@ -84,7 +89,6 @@ function App() {
     setTimeout(() => {
       window.scrollTo(0, 0);
       setShowResults(false);
-      setLoading(false);
     }, 100);
   }, [movieId]);
 
