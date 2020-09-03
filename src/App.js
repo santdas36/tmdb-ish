@@ -32,6 +32,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [listOne, setListOne] = useState(listOneInit);
   const [listTwo, setListTwo] = useState(listTwoInit);
+  const [firstRun, setFirstRun] = useState(true);
   
 
   const getMovieInfo = async (movieInfo) => {
@@ -46,14 +47,17 @@ function App() {
 	 };
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
-	 setListOne({
-		title: 'Similar Movies',
-		fetchId: fetchSimilarMovies(movieInfo),
-	 });
-	 setListTwo({
-		title: 'You May Also Like',
-		fetchId: fetchRecommendedMovies(movieInfo),
-	 });
+	 if (!firstRun) {
+	 	setListOne({
+			title: 'Similar Movies',
+			fetchId: fetchSimilarMovies(movieInfo),
+	 	});
+	 	setListTwo({
+			title: 'You May Also Like',
+			fetchId: fetchRecommendedMovies(movieInfo),
+	 	});
+		setFirstRun(false);
+	 }
       setVideoId(vidId);
 	 setLoading(false);
     }).catch((err) => console.log(err));
@@ -70,14 +74,17 @@ function App() {
 	 };
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
-	 setListOne({
-		title: 'Similar Series',
-		fetchId: fetchSimilarTV(movieInfo),
-	 });
-	 setListTwo({
-		title: 'You May Also Like',
-		fetchId: fetchRecommendedTV(movieInfo),
-	 });
+	 if (!firstRun) {
+	 	setListOne({
+			title: 'Similar Series',
+			fetchId: fetchSimilarTV(movieInfo),
+	 	});
+	 	setListTwo({
+			title: 'You May Also Like',
+			fetchId: fetchRecommendedTV(movieInfo),
+	 	});
+		setFirstRun(false);
+	 }
       setVideoId(vidId);
 	 setLoading(false);
     }).catch((err) => console.log(err));
@@ -142,7 +149,7 @@ function App() {
 		<Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> : 
 		<FeaturedMovie key={featuredMovie.id} featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
-		<List setLoading={setLoading} setMovieId={setMovieId} />
+		{firstRun && <List setLoading={setLoading} setMovieId={setMovieId} />}
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listOne.title} fetchId={listOne.fetchId}/>
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listTwo.title} fetchId={listTwo.fetchId}/>
 		<Footer />
