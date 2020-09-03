@@ -10,6 +10,15 @@ import "./App.css";
 import axios from './axios';
 import requests, { imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV } from './api';
 
+const listOneInit = {
+	title: "Latest & Trending Movies",
+	fetchId: requests.fetchTrendingMovies,
+  }
+  const listTwoInit = {
+	title: "Top Rated Series For You",
+	fetchId: requests.fetchTrendingTV,
+  }
+
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState([]);
@@ -21,10 +30,9 @@ function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(true);
-  const listOne = {
-	title: "Latest & Trending Movies",
-	fetchId: requests.fetchTrendingMovies,
-  }
+  const [listOne, setListOne] = useState(listOneInit);
+  const [listTwo, setListTwo] = useState(listTwoInit);
+  
 
   const getMovieInfo = async (movieInfo) => {
     axios.get(fetchMovie(movieInfo)).then((response) => {
@@ -120,7 +128,7 @@ function App() {
 
 		<List setLoading={setLoading} setMovieId={setMovieId} />
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listOne.title} fetchId={listOne.fetchId}/>
-		<BigList setLoading={setLoading} setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
+		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listTwo.title} fetchId={listTwo.fetchId}/>
 		<Footer />
 
     </div>
