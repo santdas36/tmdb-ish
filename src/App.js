@@ -46,6 +46,14 @@ function App() {
 	 };
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
+	 setListOne({
+		title: 'Similar Movies',
+		fetchId: fetchSimilarMovies(movieInfo),
+	 });
+	 setListTwo({
+		title: 'You May Also Like',
+		fetchId: fetchRecommendedMovies(movieInfo),
+	 });
       setVideoId(vidId);
 	 setLoading(false);
     }).catch((err) => console.log(err));
@@ -62,6 +70,14 @@ function App() {
 	 };
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
+	 setListOne({
+		title: 'Similar Series',
+		fetchId: fetchSimilarTV(movieInfo),
+	 });
+	 setListTwo({
+		title: 'You May Also Like',
+		fetchId: fetchRecommendedTV(movieInfo),
+	 });
       setVideoId(vidId);
 	 setLoading(false);
     }).catch((err) => console.log(err));
