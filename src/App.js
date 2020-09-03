@@ -56,8 +56,8 @@ function App() {
 			title: 'You May Also Like',
 			fetchId: fetchRecommendedMovies(movieInfo),
 	 	});
-		setFirstRun(false);
 	 }
+	 setFirstRun(false);
       setVideoId(vidId);
 	 setLoading(false);
     }).catch((err) => console.log(err));
@@ -83,8 +83,8 @@ function App() {
 			title: 'You May Also Like',
 			fetchId: fetchRecommendedTV(movieInfo),
 	 	});
-		setFirstRun(false);
 	 }
+	 setFirstRun(false);
       setVideoId(vidId);
 	 setLoading(false);
     }).catch((err) => console.log(err));
