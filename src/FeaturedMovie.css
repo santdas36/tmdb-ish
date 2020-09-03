@@ -19,6 +19,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	color: #2c3e50;
 }
 
 .app__featuredGenre:not(:last-of-type):after {
@@ -27,8 +28,8 @@
 
 .app__featuredCert {
 	padding: 0.25rem 0.5rem;
-	background: rgba(255,255,255,0.1);
-	border: 1px solid white;
+	background: rgba(0,0,0,0.1);
+	border: 1px solid #2c3e50;
 	border-radius: 5px;
 	margin-right: 0.5rem;
 }
@@ -43,11 +44,10 @@
 
 .app__featuredDesc {
 	width: 50%;
-	opacity: 0.85;
 }
 
 .app__featuredDesc a {
-	opacity: 0.75;
+	opacity: 0.5;
 	transition: opacity 0.1s ease;
 }
 
