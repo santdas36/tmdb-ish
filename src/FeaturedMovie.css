@@ -17,9 +17,11 @@
 .app__featuredGenres {
 	font-size: 0.95rem;
 	white-space: nowrap;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: visible;
 	text-overflow: ellipsis;
-	color: #2c3e50;
+	color: #ffb400;
+	font-weight: bold;
 }
 
 .app__featuredGenre:not(:last-of-type):after {
@@ -29,7 +31,7 @@
 .app__featuredCert {
 	padding: 0.25rem 0.5rem;
 	background: rgba(0,0,0,0.1);
-	border: 1px solid #2c3e50;
+	border: 1px solid #ffb400;
 	border-radius: 5px;
 	margin-right: 0.5rem;
 }
@@ -92,7 +94,7 @@
 	}
 
 	.app__featuredGenres {
-		font-size: 0.85rem;
+		font-size: 0.9rem;
 	}
 
 	.app__featuredCert {
