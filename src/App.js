@@ -16,6 +16,7 @@ function App() {
   const [featTitle, setFeatTitle] = useState("Today's Featured Film");
   const [truncLine, setTruncLine] = useState(2);
   const [videoId, setVideoId] = useState('');
+  const [featuredCertification, setFeaturedCertification] = useState('');
   const [movieId, setMovieId] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -24,6 +25,13 @@ function App() {
   const getMovieInfo = (movieInfo) => {
     axios.get(fetchMovie(movieInfo)).then((response) => {
       setFeaturedMovie(response.data);
+	 let releaseDates = response.data.release_dates.results;
+	 for (let i = 0; i < releaseDates.length; i++) {
+		if (releaseDates[i].iso_3166_1 === 'US') {
+			setFeaturedCertification(releaseDates[i].release_dates.certification);
+			break;
+		}
+	 });
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
       setVideoId(vidId);
@@ -33,6 +41,13 @@ function App() {
   const getTVInfo = (movieInfo) => {
     axios.get(fetchTV(movieInfo)).then((response) => {
       setFeaturedMovie(response.data);
+	 let contentRating = response.data.content_ratings.results;
+	 for (let i = 0; i < contentRating.length; i++) {
+		if (contentRating[i].iso_3166_1 === 'US') {
+			setFeaturedCertification(contentRating[i].rating);
+			break;
+		}
+	 })
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
       setVideoId(vidId);
@@ -93,7 +108,7 @@ function App() {
 
 		{showResults ?
 		<Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> : 
-		<FeaturedMovie key={featuredMovie.id} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
+		<FeaturedMovie key={featuredMovie.id} featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
 		<List setLoading={setLoading} setMovieId={setMovieId} />
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>

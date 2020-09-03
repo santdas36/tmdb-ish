@@ -10,10 +10,10 @@ const requests = {
   fetchTrendingTV: `/trending/tv/week?api_key=${API_KEY}`,
 };
 const fetchMovie = (id) => {
-  return `/movie/${id}?api_key=${API_KEY}&append_to_response=videos`
+  return `/movie/${id}?api_key=${API_KEY}&append_to_response=videos,release_dates`
 }
 const fetchTV = (id) => {
-  return `/tv/${id}?api_key=${API_KEY}&append_to_response=videos`
+  return `/tv/${id}?api_key=${API_KEY}&append_to_response=videos,content_ratings`
 }
 const fetchSearchString = (query) => {
   let queryString = encodeURIComponent(query);

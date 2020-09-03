@@ -82,6 +82,7 @@
 	bottom: -6rem;
 	padding: 1rem;
 	z-index: 9;
+	width: 100%;
 	transition: bottom 0.2s ease-in;
 }
 
@@ -93,7 +94,7 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	width: 90%;
+	width: 95%;
 	margin-bottom: 1.25rem;
 	transition: margin-bottom 0.2s ease-out;
 }

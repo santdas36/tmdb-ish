@@ -46,7 +46,7 @@ function List({ setMovieId, setLoading }) {
 									element="p"
 									containerClassName="list__itemOverview"
 									truncateText="…"
-									text={movie.overview}
+									text={movie.tagline || movie.overview}
 								/>
 								<div className="list__rating">
 									<Rating name="movie-rating" className="movieRating" value={(movie.vote_average / 2) || 0} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
