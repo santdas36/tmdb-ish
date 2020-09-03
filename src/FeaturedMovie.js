@@ -6,6 +6,7 @@ import Rating from "@material-ui/lab/Rating";
 import Button from "@material-ui/core/Button";
 import TextTruncate from "react-text-truncate";
 import ModalVideo from "react-modal-video";
+import numeral from "numeral";
 import "./modalVideo.css";
 import "./FeaturedMovie.css";
 
@@ -52,7 +53,7 @@ function FeaturedMovie({ title, overlayStyle, featuredMovie, featuredCertificati
 			/>
 			<div className="app__featuredRating">
 				<Rating name="movie-rating" value={featuredMovie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
-				<p className="app__featuredLikes">{featuredMovie.vote_average / 2}<small> ({featuredMovie.vote_count})</small></p>
+				<p className="app__featuredLikes">{numeral(featuredMovie.vote_average / 2).format('0.0')}<small> ({numeral(featuredMovie.vote_count).format('0,0')})</small></p>
 			</div>
 			<Button className="app__button" variant="contained" onClick={() => setPlaying(true)} startIcon={<PlayArrowRoundedIcon />}>Play Trailer</Button>
 		</div>
