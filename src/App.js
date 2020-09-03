@@ -31,7 +31,7 @@ function App() {
 			setFeaturedCertification(releaseDates[i].release_dates.certification);
 			break;
 		}
-	 });
+	 }
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
       setVideoId(vidId);
@@ -47,7 +47,7 @@ function App() {
 			setFeaturedCertification(contentRating[i].rating);
 			break;
 		}
-	 })
+	 }
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
       setVideoId(vidId);
