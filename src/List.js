@@ -12,14 +12,18 @@ function List({ setMovieId, setLoading }) {
   const [genres, setGenres] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
 
-  useEffect(() => {
+useEffect(() => {
+  const fetchData = async () => {
     axios.get(requests.fetchGenres).then((response) => {
       setGenres(response.data.genres);
     });
     axios.get(requests.fetchPopularMovies).then((response) => {
       setPopularMovies(response.data.results);
-    })
-  }, []);
+    });
+  }
+
+  fetchData();
+}, []);
 
   const handleClick = (movie) => {
     setMovieId(movie);

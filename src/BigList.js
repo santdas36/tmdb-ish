@@ -12,10 +12,14 @@ function BigList({ fetchId, title, setMovieId, setLoading }) {
   const [thisMovies, setThisMovies] = useState([]);
 
   useEffect(() => {
-    axios.get(fetchId).then((response) => {
-      setThisMovies(response.data.results);
-      console.log(response.data.results);
-    })
+	const fetchData = async () => {
+    		axios.get(fetchId).then((response) => {
+      		setThisMovies(response.data.results);
+      		console.log(response.data.results);
+    		})
+	}
+	
+	fetchData();
   }, [fetchId]);
 
   const scrollHorizontally = (e) => {
