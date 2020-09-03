@@ -14,13 +14,20 @@
 	font-weight: 900;
 }
 
-.app__featuredGenres,
-.app__seriesSeasons {
+.app__featuredGenres {
 	font-size: 0.95rem;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	padding: 4px;
+	font-weight: 500;
+}
+
+.app__seriesSeasons {
+	text-transform: uppercase;
+	font-size: 0.95rem;
+	margin: 0;
+	margin-top: 0.5rem;
 	font-weight: 500;
 }
 
@@ -34,6 +41,7 @@
 	border: 1px solid #fff;
 	border-radius: 5px;
 	margin-right: 0.5rem;
+	margin-left: -4px;
 }
 
 .app__featuredYear {
@@ -93,8 +101,7 @@
 		font-size: 0.85rem;
 	}
 
-	.app__featuredGenres,
-	.app__seriesSeasons {
+	.app__featuredGenres {
 		font-size: 0.9rem;
 	}
 
