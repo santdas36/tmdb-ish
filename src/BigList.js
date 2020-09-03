@@ -45,7 +45,7 @@ function BigList({ fetchId, title, setMovieId, setLoading }) {
 				<h4>{title}</h4>
 				<div onWheel={(e) => scrollHorizontally(e)} class="list__items list__items-big">
 					{ thisMovies?.slice(0, 10).map((movie) =>
-						(<div class="list__item" onClick={() => handleClick(movie)}>
+						(<div class="list__item" key={movie.id} onClick={() => handleClick(movie)}>
 							<img loading="lazy" src={`${imageBase}${movie.poster_path || movie.backdrop_path}`} />
 							<div className="list__itemInfo">
 								<h5 className="list__itemTitle">{movie.title || movie.original_title || movie.name || movie.original_name}<span className="list__itemYear">({getReleaseYear(movie.release_date || movie.first_air_date)})</span></h5>

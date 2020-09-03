@@ -147,9 +147,9 @@ function App() {
 
 		{showResults ?
 		<Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> : 
-		<FeaturedMovie key={featuredMovie.id} featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
+		<FeaturedMovie featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
-		{firstRun && <List setLoading={setLoading} setMovieId={setMovieId} />}
+		{listOne !== listOneInit && <List setLoading={setLoading} setMovieId={setMovieId} />}
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listOne.title} fetchId={listOne.fetchId}/>
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listTwo.title} fetchId={listTwo.fetchId}/>
 		<Footer />
