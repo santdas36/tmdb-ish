@@ -44,11 +44,6 @@ function FeaturedMovie({ title, overlayStyle, featuredMovie, featuredCertificati
 					(<span className="app__featuredGenre">{genre.name}</span>)
 				)}
 			</p>
-			{featuredMovie.number_of_seasons && (
-				<p className="app__seriesSeasons">
-					`${featuredMovie.number_of_seasons} Seasons, ${featuredMovie.number_of_episodes} Episodes`
-				</p>
-			)}
 			<TextTruncate
 				line={truncLine}
 				element="p"
@@ -56,6 +51,11 @@ function FeaturedMovie({ title, overlayStyle, featuredMovie, featuredCertificati
 				textTruncateChild={<a href="#" onClick={readMore}><small>[more]</small></a>}
 				truncateText="…" text={featuredMovie.overview}
 			/>
+			{featuredMovie.number_of_seasons && (
+				<p className="app__seriesSeasons">
+					{featuredMovie.number_of_seasons} Seasons, {featuredMovie.number_of_episodes} Episodes
+				</p>
+			)}
 			<div className="app__featuredRating">
 				<Rating name="movie-rating" value={featuredMovie.vote_average / 2} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
 				<p className="app__featuredLikes">{numeral(featuredMovie.vote_average / 2).format('0.0')}<small> ({numeral(featuredMovie.vote_count).format('0,0')})</small></p>
