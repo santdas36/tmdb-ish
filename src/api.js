@@ -19,6 +19,18 @@ const fetchSearchString = (query) => {
   let queryString = encodeURIComponent(query);
   return `/search/multi?api_key=${API_KEY}&language=en-US&query=${queryString}&page=1&include_adult=false`
 }
+const fetchRecommendedMovies = (id) => {
+  return `/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
+}
+const fetchRecommendedTV = (id) => {
+  return `/tv/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
+}
+const fetchSimilarMovies = (id) => {
+  return `/movie/${id}/similar?api_key=${API_KEY}&language=en-US&page=1`
+}
+const fetchSimilarTV = (id) => {
+  return `/tv/${id}/similar?api_key=${API_KEY}&language=en-US&page=1`
+}
 
-export { imageBase, fetchMovie, fetchTV, fetchSearchString };
+export { imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV };
 export default requests;

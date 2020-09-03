@@ -8,7 +8,7 @@ import Loading from "./Loading";
 import Footer from "./Footer";
 import "./App.css";
 import axios from './axios';
-import requests, { imageBase, fetchMovie, fetchTV, fetchSearchString } from './api';
+import requests, { imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV } from './api';
 
 function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -21,6 +21,10 @@ function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(true);
+  const listOne = {
+	title: "Latest & Trending Movies",
+	fetchId: requests.fetchTrendingMovies,
+  }
 
   const getMovieInfo = async (movieInfo) => {
     axios.get(fetchMovie(movieInfo)).then((response) => {
@@ -115,7 +119,7 @@ function App() {
 		<FeaturedMovie key={featuredMovie.id} featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
 		<List setLoading={setLoading} setMovieId={setMovieId} />
-		<BigList setLoading={setLoading} setMovieId={setMovieId} title="Trending Movies in Your Region" fetchId={requests.fetchTrendingMovies}/>
+		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listOne.title} fetchId={listOne.fetchId}/>
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title="Top Rated Series For You" fetchId={requests.fetchTrendingTV}/>
 		<Footer />
 
