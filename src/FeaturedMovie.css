@@ -40,15 +40,16 @@
 
 .app__featuredDesc {
 	width: 50%;
+	opacity: 0.85;
 }
 
 .app__featuredDesc a {
-	opacity: 0.5;
+	opacity: 0.75;
 	transition: opacity 0.1s ease;
 }
 
 .app__featuredDesc a:hover {
-	opacity: 0.95;
+	opacity: 1;
 }
 
 .app__featuredRating {
