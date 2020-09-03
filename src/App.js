@@ -26,11 +26,9 @@ function App() {
     axios.get(fetchMovie(movieInfo)).then((response) => {
       setFeaturedMovie(response.data);
 	 let releaseDates = response.data.release_dates.results;
-	console.log(releaseDates);
 	 for (let i = 0; i < releaseDates.length; i++) {
-		console.log(releaseDates[i].release_date.certification);
 		if (releaseDates[i].iso_3166_1 === 'US') {
-			setFeaturedCertification(releaseDates[i].release_date.certification);
+			setFeaturedCertification(releaseDates[i].release_dates[0].certification);
 			break;
 		}
 	 };
