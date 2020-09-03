@@ -14,7 +14,8 @@
 	font-weight: 900;
 }
 
-.app__featuredGenres {
+.app__featuredGenres,
+.app__seriesSeasons {
 	font-size: 0.95rem;
 	white-space: nowrap;
 	overflow: hidden;
@@ -92,7 +93,8 @@
 		font-size: 0.85rem;
 	}
 
-	.app__featuredGenres {
+	.app__featuredGenres,
+	.app__seriesSeasons {
 		font-size: 0.9rem;
 	}
 

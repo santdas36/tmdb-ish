@@ -36,7 +36,7 @@ function FeaturedMovie({ title, overlayStyle, featuredMovie, featuredCertificati
 				/>
 			</Grow>}
 			<div className="app__overlay" style={overlayStyle}></div>
-			<p className="app__featuredInfo">{title}{featuredMovie.number_of_seasons && ` | ${featuredMovie.number_of_seasons} Seasons, ${featuredMovie.number_of_episodes} Episodes`}</p>
+			<p className="app__featuredInfo">{title}</p>
 			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title || featuredMovie.name || featuredMovie.original_name}<span className="app__featuredYear">({getReleaseYear(featuredMovie.release_date || featuredMovie.first_air_date)})</span></h2>
 			<p className="app__featuredGenres">
 				<span className="app__featuredCert">{featuredCertification}</span>
@@ -44,6 +44,11 @@ function FeaturedMovie({ title, overlayStyle, featuredMovie, featuredCertificati
 					(<span className="app__featuredGenre">{genre.name}</span>)
 				)}
 			</p>
+			{featuredMovie.number_of_seasons && (
+				<p className="app__seriesSeasons">
+					`${featuredMovie.number_of_seasons} Seasons, ${featuredMovie.number_of_episodes} Episodes`
+				</p>
+			)}
 			<TextTruncate
 				line={truncLine}
 				element="p"
