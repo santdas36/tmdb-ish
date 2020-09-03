@@ -17,11 +17,10 @@
 .app__featuredGenres {
 	font-size: 0.95rem;
 	white-space: nowrap;
-	overflow-x: hidden;
-	overflow-y: visible;
+	overflow: hidden;
 	text-overflow: ellipsis;
-	color: #ffb400;
-	font-weight: bold;
+	font-weight: 500;
+	padding: 4px;
 }
 
 .app__featuredGenre:not(:last-of-type):after {
@@ -34,6 +33,7 @@
 	border: 1px solid #ffb400;
 	border-radius: 5px;
 	margin-right: 0.5rem;
+	font-weight: 900;
 }
 
 .app__featuredYear {
