@@ -15,7 +15,11 @@
 }
 
 .app__featuredGenres {
-	font-size: 0.85rem;
+	font-size: 0.95rem;
+}
+
+.app__featuredGenre:not(:last-of-type):after {
+	content: ", ";
 }
 
 .app__featuredCert {
@@ -80,6 +84,10 @@
 
 	.app__featuredDesc {
 		width: 100%;
+		font-size: 0.85rem;
+	}
+
+	.app__featuredGenres {
 		font-size: 0.85rem;
 	}
 

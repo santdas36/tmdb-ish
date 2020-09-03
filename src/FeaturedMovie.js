@@ -39,7 +39,9 @@ function FeaturedMovie({ title, overlayStyle, featuredMovie, featuredCertificati
 			<h2 className="app__featuredTitle">{featuredMovie.title || featuredMovie.original_title || featuredMovie.name || featuredMovie.original_name}<span className="app__featuredYear">({getReleaseYear(featuredMovie.release_date || featuredMovie.first_air_date)})</span></h2>
 			<p className="app__featuredGenres">
 				<span className="app__featuredCert">{featuredCertification}</span>
-				<span>{featuredMovie?.genres?.slice(0,3).map((genre) => `${genre.name} `)}</span>
+				{featuredMovie?.genres?.slice(0,3).map((genre) => 
+					(<span className="app__featuredGenre">{genre.name}</span>)
+				)}
 			</p>
 			<TextTruncate
 				line={truncLine}
