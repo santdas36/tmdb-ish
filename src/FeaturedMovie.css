@@ -16,6 +16,9 @@
 
 .app__featuredGenres {
 	font-size: 0.95rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .app__featuredGenre:not(:last-of-type):after {

@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import Rating from "@material-ui/lab/Rating";
 import TextTruncate from "react-text-truncate";
+import numeral from "numeral";
 import "./BigList.css";
 import axios from './axios';
 import requests, { imageBase } from './api';
@@ -53,7 +54,7 @@ function BigList({ fetchId, title, setMovieId, setLoading }) {
 								/>
 								<div className="list__rating">
 									<Rating name="movie-rating" className="movieRating" value={(movie.vote_average / 2) || 0} precision={0.5} icon={<StarRoundedIcon fontSize="inherit" readOnly />}/>
-									<small className="list__likes">{movie.vote_average / 2}</small>
+									<small className="list__likes">{numeral(movie.vote_average / 2).format('0.0')}</small>
 								</div>
 							</div>
 						</div>)
