@@ -80,6 +80,7 @@
 
 	.app__featuredCert {
 		font-size: 0.85rem;
+		padding: 0.15rem 0.3rem;
 	}
 
 	.app__featuredInfo {
