@@ -14,11 +14,16 @@
 	font-weight: 900;
 }
 
+.app__featuredGenres {
+	font-size: 0.85rem;
+}
+
 .app__featuredCert {
 	padding: 0.25rem 0.5rem;
 	background: rgba(255,255,255,0.1);
 	border: 1px solid white;
 	border-radius: 5px;
+	margin-right: 0.5rem;
 }
 
 .app__featuredYear {
@@ -79,7 +84,6 @@
 	}
 
 	.app__featuredCert {
-		font-size: 0.85rem;
 		padding: 0.15rem 0.3rem;
 	}
 
