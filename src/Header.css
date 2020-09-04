@@ -70,7 +70,7 @@ form button {
 		overflow: hidden;
 	}
 
-	.app__nav li:not(.app__search, .app__back) {
+	.app__nav li:not(.mobile) {
 		display: none;
 	}
 
