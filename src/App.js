@@ -111,7 +111,7 @@ function App() {
       setTruncLine(2);
       setFeatTitle('Series');
     }
-    else {
+    if (movieId.media_type === 'movie') {
       getMovieInfo(movieId.id);
       setTruncLine(2);
       setFeatTitle('Movie');
@@ -128,6 +128,15 @@ function App() {
       setLoading(false);
     }
   }, [searchResult]);
+
+useEffect(() => {
+	if(loading) setTimeout(()=> {
+		if(loading) {
+			setLoading(false);
+			alert('Some error occurred');
+		}
+	}, 5000);
+}, [loading]);
 
   var overlayStyle = {
     backgroundImage: `url(${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
