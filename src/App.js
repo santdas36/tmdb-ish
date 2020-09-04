@@ -48,7 +48,7 @@ function App() {
       setFeaturedMovie(response.data);
 	 let releaseDates = response.data.release_dates.results;
 	 for (let i = 0; i < releaseDates.length; i++) {
-		if (releaseDates[i].iso_3166_1 === 'US') {
+		if (releaseDates[i].iso_3166_1 === 'US' || releaseDates[i].iso_3166_1 === 'IN') {
 			setFeaturedCertification(releaseDates[i].release_dates[0].certification);
 			break;
 		}
