@@ -40,7 +40,7 @@ function BigList({ fetchId, title, setMovieId, setLoading, type, popularVisible 
   }
 
   return (
-    <div className={`list biglist ${popularVisible ? "bigList_gradient" : ""}`}>
+    <div className={`list biglist ${!popularVisible ? "bigList_gradient" : ""}`}>
 
 			<div class="list__trending list__big">
 				<h4>{title}</h4>
