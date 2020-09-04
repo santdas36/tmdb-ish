@@ -37,6 +37,12 @@ function App() {
   const [firstRun, setFirstRun] = useState(true);
   var popularVisible = listOne === listOneInit;
 
+  const errorOccurred = (error) => {
+	setLoading(false);
+	alert('Something went wrong.');
+	console.log(error.message);
+  }
+
   const getMovieInfo = async (movieInfo) => {
     axios.get(fetchMovie(movieInfo)).then((response) => {
       setFeaturedMovie(response.data);
@@ -64,7 +70,7 @@ function App() {
 	 setFirstRun(false);
       setVideoId(vidId);
 	 setLoading(false);
-    }).catch((err) => console.log(err));
+    }).catch((err) => errorOccurred(err));
   }
   const getTVInfo = async (movieInfo) => {
     axios.get(fetchTV(movieInfo)).then((response) => {
@@ -93,7 +99,7 @@ function App() {
 	 setFirstRun(false);
       setVideoId(vidId);
 	 setLoading(false);
-    }).catch((err) => console.log(err));
+    }).catch((err) => errorOccurred(err));
   }
 
   useEffect(() => {
@@ -105,7 +111,7 @@ function App() {
       	getMovieInfo(getFeatured);
       	setFeatTitle("Today's Featured Film");
 	 	setLoading(false);
-       })
+       }).catch((err) => errorOccurred(err));
 	 }
 
 	initRun();
@@ -134,18 +140,6 @@ function App() {
       setLoading(false);
     }
   }, [searchResult]);
-
-  useEffect(() => {
-	clearTimeout(loadingTimeout);
-	if(loading) {
-		var loadingTimeout = setTimeout(() => {
-			if(loading) {
-				alert('Something went wrong.');
-				setLoading(false);
-			}
-		}, 30000);
-	}
-  }, [loading]);
 
   var overlayStyle = {
     backgroundImage: `url(${imageLargeBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,

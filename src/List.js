@@ -16,14 +16,21 @@ useEffect(() => {
   const fetchData = async () => {
     axios.get(requests.fetchGenres).then((response) => {
       setGenres(response.data.genres);
-    });
+    }).catch((err) => errorOccurred(err));
     axios.get(requests.fetchPopularMovies).then((response) => {
       setPopularMovies(response.data.results);
-    });
+    }).catch((err) => errorOccurred(err));
   }
 
   fetchData();
 }, []);
+
+  const errorOccurred = (error) => {
+	setLoading(false);
+	alert('Something went wrong.');
+	console.log(error.message);
+  }
+
 
   const handleClick = (movie) => {
     movie.media_type = 'movie';

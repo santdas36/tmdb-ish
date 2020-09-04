@@ -15,12 +15,17 @@ function BigList({ fetchId, title, setMovieId, setLoading, type, notGradient }) 
 	const fetchData = async () => {
     		axios.get(fetchId).then((response) => {
       		setThisMovies(response.data.results);
-      		console.log(response.data.results);
-    		})
+    		}).catch((err) => errorOccurred(err));
 	}
 	
 	fetchData();
   }, [fetchId]);
+
+  const errorOccurred = (error) => {
+	setLoading(false);
+	alert('Something went wrong.');
+	console.log(error.message);
+  }
 
   const scrollHorizontally = (e) => {
     let delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));

@@ -11,6 +11,12 @@ function Header({ setSearchResult, setLoading, popularVisible }) {
   const searchEl = useRef(null);
   const [searchOpen, setSearchOpen] = useState(false);
 
+  const errorOccurred = (error) => {
+	setLoading(false);
+	alert('Something went wrong.');
+	console.log(error.message);
+  }
+
   const searchQuery = (query) => {
     axios.get(fetchSearchString(query)).then((response) => {
       if (response.data.total_results < 1) {
@@ -19,7 +25,7 @@ function Header({ setSearchResult, setLoading, popularVisible }) {
       } else {
         setSearchResult(response.data.results);
       }
-    }).catch((err) => console.log(err));
+    }).catch((err) => errorOccurred(err));
   }
 
   const handleSearch = (e) => {
