@@ -26,6 +26,7 @@ useEffect(() => {
 }, []);
 
   const handleClick = (movie) => {
+    movie.media_type = 'movie';
     setMovieId(movie);
     setLoading(true);
   }

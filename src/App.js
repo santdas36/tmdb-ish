@@ -13,10 +13,12 @@ import requests, { imageLargeBase, imageBase, fetchMovie, fetchTV, fetchSearchSt
 const listOneInit = {
 	title: "Latest & Trending Movies",
 	fetchId: requests.fetchTrendingMovies,
+	type: 'movie',
   }
   const listTwoInit = {
 	title: "Top Rated Series For You",
 	fetchId: requests.fetchTrendingTV,
+	type: 'tv',
   }
 
 function App() {
@@ -146,8 +148,8 @@ function App() {
 
 		{((listOne === listOneInit) || showResults) && <List setLoading={setLoading} setMovieId={setMovieId} />}
 
-		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listOne.title} fetchId={listOne.fetchId}/>
-		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listTwo.title} fetchId={listTwo.fetchId}/>
+		<BigList setLoading={setLoading} setMovieId={setMovieId} type={listOne.type} title={listOne.title} fetchId={listOne.fetchId}/>
+		<BigList setLoading={setLoading} setMovieId={setMovieId} type={listTwo.type} title={listTwo.title} fetchId={listTwo.fetchId}/>
 
 		<Footer />
 

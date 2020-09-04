@@ -8,7 +8,7 @@ import "./BigList.css";
 import axios from './axios';
 import requests, { imageBase } from './api';
 
-function BigList({ fetchId, title, setMovieId, setLoading }) {
+function BigList({ fetchId, title, setMovieId, setLoading, type }) {
   const [thisMovies, setThisMovies] = useState([]);
 
   useEffect(() => {
@@ -29,6 +29,7 @@ function BigList({ fetchId, title, setMovieId, setLoading }) {
   }
 
   const handleClick = (movie) => {
+    movie.media_type = type;
     setMovieId(movie);
     setLoading(true);
   }
