@@ -1,6 +1,8 @@
 const API_KEY = "ebc795444944ae46fa639cc55b79ded3";
 
-const imageBase = "https://image.tmdb.org/t/p/780";
+const imageBase = "https://image.tmdb.org/t/p/w500";
+const imageLargeBase = "https://image.tmdb.org/t/p/w1280";
+
 const requests = {
   searchQuery: `/search/multi?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`,
   fetchGenres: `/genre/movie/list?api_key=${API_KEY}&language=en-US`,
@@ -32,5 +34,5 @@ const fetchSimilarTV = (id) => {
   return `/tv/${id}/similar?api_key=${API_KEY}&language=en-US&page=1`
 }
 
-export { imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV };
+export { imageLargeBase, imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV };
 export default requests;
