@@ -50,12 +50,12 @@ function App() {
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
 	 if (!firstRun) {
-	 	setListOne({
+	 	setListTwo({
 			title: 'Similar Movies',
 			fetchId: fetchSimilarMovies(movieInfo),
 			type: 'movie',
 	 	});
-	 	setListTwo({
+	 	setListOne({
 			title: 'You May Also Like',
 			fetchId: fetchRecommendedMovies(movieInfo),
 			type: 'movie',
@@ -79,12 +79,12 @@ function App() {
       let videos = response.data.videos.results;
       let vidId = videos[0].key;
 	 if (!firstRun) {
-	 	setListOne({
+	 	setListTwo({
 			title: 'Similar Series',
 			fetchId: fetchSimilarTV(movieInfo),
 			type: 'tv',
 	 	});
-	 	setListTwo({
+	 	setListOne({
 			title: 'You May Also Like',
 			fetchId: fetchRecommendedTV(movieInfo),
 			type: 'tv',
@@ -134,6 +134,18 @@ function App() {
       setLoading(false);
     }
   }, [searchResult]);
+
+  useEffect(() => {
+	clearTimeout(loadingTimeout);
+	if(loading) {
+		var loadingTimeout = setTimeout(() => {
+			if(loading) {
+				alert('Something went wrong.');
+				setLoading(false);
+			}
+		}, 30000);
+	}
+  }, [loading]);
 
   var overlayStyle = {
     backgroundImage: `url(${imageLargeBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
