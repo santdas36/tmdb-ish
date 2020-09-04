@@ -8,7 +8,7 @@ import Loading from "./Loading";
 import Footer from "./Footer";
 import "./App.css";
 import axios from './axios';
-import requests, { imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV } from './api';
+import requests, { imageLargeBase, imageBase, fetchMovie, fetchTV, fetchSearchString, fetchRecommendedMovies, fetchRecommendedTV, fetchSimilarMovies, fetchSimilarTV } from './api';
 
 const listOneInit = {
 	title: "Latest & Trending Movies",
@@ -135,11 +135,11 @@ useEffect(() => {
 			setLoading(false);
 			alert('Some error occurred');
 		}
-	}, 5000);
+	}, 30000);
 }, [loading]);
 
   var overlayStyle = {
-    backgroundImage: `url(${imageBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
+    backgroundImage: `url(${imageLargeBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
     backgroundSize: 'cover',
     backgroundPosition: 'top right',
   }
@@ -153,7 +153,7 @@ useEffect(() => {
 		<Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> : 
 		<FeaturedMovie featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
-		{(listOne === listOneInit) || showResults && <List setLoading={setLoading} setMovieId={setMovieId} />}
+		{((listOne === listOneInit) || showResults) && <List setLoading={setLoading} setMovieId={setMovieId} />}
 
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listOne.title} fetchId={listOne.fetchId}/>
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listTwo.title} fetchId={listTwo.fetchId}/>
