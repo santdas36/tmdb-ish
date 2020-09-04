@@ -8,7 +8,7 @@ import "./BigList.css";
 import axios from './axios';
 import requests, { imageBase } from './api';
 
-function BigList({ fetchId, title, setMovieId, setLoading, type }) {
+function BigList({ fetchId, title, setMovieId, setLoading, type, popularVisible }) {
   const [thisMovies, setThisMovies] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function BigList({ fetchId, title, setMovieId, setLoading, type }) {
   }
 
   return (
-    <div className="list biglist">
+    <div className=`list biglist ${popularVisible && "bigList_gradient"}`>
 
 			<div class="list__trending list__big">
 				<h4>{title}</h4>
