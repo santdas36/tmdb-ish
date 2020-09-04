@@ -4,7 +4,7 @@ import "./Header.css";
 import axios from './axios';
 import requests, { imageBase, fetchMovie, fetchTV, fetchSearchString, setLoading } from './api';
 
-function Header({ setSearchResult, setLoading }) {
+function Header({ setSearchResult, setLoading, popularVisible }) {
   const [input, setInput] = useState('');
   const inputEl = useRef(null);
   const searchEl = useRef(null);
@@ -39,6 +39,7 @@ function Header({ setSearchResult, setLoading }) {
   return (
     <div className="app__header">
 			<ul className="app__nav">
+				{!popularVisible && <li className="app__search">BACK</li>}
 				<li className={`app__search ${(searchOpen || input) ? "open" : ""}`} onClick={searchClick}>
 					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" onClick={searchClick} />
 					<form>

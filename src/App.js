@@ -33,6 +33,7 @@ function App() {
   const [listOne, setListOne] = useState(listOneInit);
   const [listTwo, setListTwo] = useState(listTwoInit);
   const [firstRun, setFirstRun] = useState(true);
+  let popularVisible = listOne === listOneInit;
   
 
   const getMovieInfo = async (movieInfo) => {
@@ -106,17 +107,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (movieId.media_type === 'movie') {
-      getMovieInfo(movieId.id);
-      setTruncLine(2);
-      setFeatTitle('Movie');
-    }
-    if (movieId.media_type === 'tv') {
+    if (movieId.number_of_seasons) {
       getTVInfo(movieId.id);
       setTruncLine(2);
       setFeatTitle('Series');
     }
-    if (!movieId.media_type) {
+    else {
       getMovieInfo(movieId.id);
       setTruncLine(2);
       setFeatTitle('Movie');
@@ -143,16 +139,17 @@ function App() {
   return (
     <div className="app">
 		{loading && <Loading />}
-		<Header setLoading={setLoading} setSearchResult={setSearchResult} />
+		<Header setLoading={setLoading} popularVisible={popularVisible} setSearchResult={setSearchResult} />
 
 		{showResults ?
 		<Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> : 
 		<FeaturedMovie featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
-		{listOne === listOneInit && <List setLoading={setLoading} setMovieId={setMovieId} />}
+		{popularVisible || showResults && <List setLoading={setLoading} setMovieId={setMovieId} />}
 
-		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listTwo.title} fetchId={listTwo.fetchId}/>
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listOne.title} fetchId={listOne.fetchId}/>
+		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listTwo.title} fetchId={listTwo.fetchId}/>
+
 		<Footer />
 
     </div>
