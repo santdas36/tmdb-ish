@@ -129,15 +129,6 @@ function App() {
     }
   }, [searchResult]);
 
-useEffect(() => {
-	if(loading) setTimeout(()=> {
-		if(loading) {
-			setLoading(false);
-			alert('Some error occurred');
-		}
-	}, 30000);
-}, [loading]);
-
   var overlayStyle = {
     backgroundImage: `url(${imageLargeBase}${featuredMovie.backdrop_path || featuredMovie.poster_path})`,
     backgroundSize: 'cover',
