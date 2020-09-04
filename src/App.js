@@ -147,13 +147,13 @@ useEffect(() => {
   return (
     <div className="app">
 		{loading && <Loading />}
-		<Header setLoading={setLoading} popularVisible={popularVisible} setSearchResult={setSearchResult} />
+		<Header setLoading={setLoading} popularVisible={listOne === listOneInit} setSearchResult={setSearchResult} />
 
 		{showResults ?
 		<Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> : 
 		<FeaturedMovie featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
-		{listOne === listOneInit || showResults && <List setLoading={setLoading} setMovieId={setMovieId} />}
+		{(listOne === listOneInit) || showResults && <List setLoading={setLoading} setMovieId={setMovieId} />}
 
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listOne.title} fetchId={listOne.fetchId}/>
 		<BigList setLoading={setLoading} setMovieId={setMovieId} title={listTwo.title} fetchId={listTwo.fetchId}/>
