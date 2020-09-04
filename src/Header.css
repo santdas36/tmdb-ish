@@ -70,11 +70,11 @@ form button {
 		overflow: hidden;
 	}
 
-	.app__nav li:not(.app__search) {
+	.app__nav li:not(.app__search, .app__back) {
 		display: none;
 	}
 
-	.app__search + .app__search {
-		margin-left: 1rem;
+	li.app__search {
+		margin: 0 1rem;
 	}
 }
