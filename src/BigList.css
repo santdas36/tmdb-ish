@@ -3,7 +3,7 @@
 }
 
 .bigList_gradient {
-  background: linear-gradient(to bottom, #3A6979, #2c3e50);
+  background: linear-gradient(to bottom, #3A6979, #2c3e50) !important;
 }
 
 .list__trending.list__big {

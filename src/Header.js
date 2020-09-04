@@ -40,7 +40,7 @@ function Header({ setSearchResult, setLoading, popularVisible }) {
   return (
     <div className="app__header">
 			<ul className="app__nav">
-				{!popularVisible && <li className="app__search"><SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" onClick={searchClick} /></li>}
+				{!popularVisible && <li className="app__search"><ChevronLeftRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" onClick={searchClick} /></li>}
 				<li className={`app__search ${(searchOpen || input) ? "open" : ""}`} onClick={searchClick}>
 					<SearchRoundedIcon style={{ fontSize: 20 }} className="app__searchIcon" onClick={searchClick} />
 					<form>
