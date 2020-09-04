@@ -2,6 +2,10 @@
   background: #2c3e50;
 }
 
+.bigList_gradient {
+  background: linear-gradient(to bottom, #3A6979, #2c3e50);
+}
+
 .list__trending.list__big {
   flex: 0 0 100%;
 }

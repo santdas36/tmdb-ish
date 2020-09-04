@@ -35,7 +35,7 @@ function App() {
   const [listOne, setListOne] = useState(listOneInit);
   const [listTwo, setListTwo] = useState(listTwoInit);
   const [firstRun, setFirstRun] = useState(true);
-  
+  var popularVisible = listOne === listOneInit;
 
   const getMovieInfo = async (movieInfo) => {
     axios.get(fetchMovie(movieInfo)).then((response) => {
@@ -53,10 +53,12 @@ function App() {
 	 	setListOne({
 			title: 'Similar Movies',
 			fetchId: fetchSimilarMovies(movieInfo),
+			type: 'movie',
 	 	});
 	 	setListTwo({
 			title: 'You May Also Like',
 			fetchId: fetchRecommendedMovies(movieInfo),
+			type: 'movie',
 	 	});
 	 }
 	 setFirstRun(false);
@@ -80,10 +82,12 @@ function App() {
 	 	setListOne({
 			title: 'Similar Series',
 			fetchId: fetchSimilarTV(movieInfo),
+			type: 'tv',
 	 	});
 	 	setListTwo({
 			title: 'You May Also Like',
 			fetchId: fetchRecommendedTV(movieInfo),
+			type: 'tv',
 	 	});
 	 }
 	 setFirstRun(false);
@@ -140,16 +144,16 @@ function App() {
   return (
     <div className="app">
 		{loading && <Loading />}
-		<Header setLoading={setLoading} popularVisible={listOne === listOneInit} setSearchResult={setSearchResult} />
+		<Header setLoading={setLoading} popularVisible={popularVisible} setSearchResult={setSearchResult} />
 
 		{showResults ?
+
 		<Results setLoading={setLoading} searchResult={searchResult} setMovieId={setMovieId} /> : 
-		<FeaturedMovie featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />}
 
-		{((listOne === listOneInit) || showResults) && <List setLoading={setLoading} setMovieId={setMovieId} />}
-
-		<BigList setLoading={setLoading} setMovieId={setMovieId} type={listOne.type} title={listOne.title} fetchId={listOne.fetchId}/>
-		<BigList setLoading={setLoading} setMovieId={setMovieId} type={listTwo.type} title={listTwo.title} fetchId={listTwo.fetchId}/>
+		<FeaturedMovie featuredCertification={featuredCertification} overlayStyle={overlayStyle} title={featTitle} featuredMovie={featuredMovie} videoId={videoId} setTruncLine={setTruncLine} truncLine={truncLine} />
+		{popularVisible && <List setLoading={setLoading} setMovieId={setMovieId} />}
+		<BigList className={!popularVisible && bigList_gradient} setLoading={setLoading} setMovieId={setMovieId} type={listOne.type} title={listOne.title} fetchId={listOne.fetchId}/>
+		<BigList setLoading={setLoading} setMovieId={setMovieId} type={listTwo.type} title={listTwo.title} fetchId={listTwo.fetchId}/>}
 
 		<Footer />
 
