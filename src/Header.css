@@ -67,9 +67,14 @@ form button {
 @media (max-width: 550px) {
 	.app__header {
 		padding: 2rem 1.5rem;
+		overflow: hidden;
 	}
 
 	.app__nav li:not(.app__search) {
 		display: none;
+	}
+
+	.app__search + .app__search {
+		margin-left: 1rem;
 	}
 }
